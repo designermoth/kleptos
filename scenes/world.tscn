@@ -54,7 +54,7 @@ shape = SubResource("ConvexPolygonShape3D_e5uuo")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1669862366]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.2475571, 0.9688733, 0, -0.9688733, 0.2475571, 0, 6.125, 1.565)
+transform = Transform3D(1, 0, 0, 0, 0.24755687, 0.96887237, 0, -0.96887237, 0.24755687, 0, 6.125, 1.565)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1837530763]
@@ -69,14 +69,12 @@ top_level = true
 script = ExtResource("3_71j4m")
 follow_mode = 2
 follow_target = NodePath("../Player")
-look_at_mode = 2
 look_at_target = NodePath("../Player")
 tween_resource = SubResource("Resource_i7141")
 follow_offset = Vector3(0, 6.125, 1.565)
 follow_damping = true
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
-align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Character" parent="." unique_id=681860811 instance=ExtResource("5_71j4m")]
