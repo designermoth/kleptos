@@ -1,23 +1,40 @@
 join Bailey rightmost
-Bailey: Hello Darling
+Bailey: Hello Hello, can I get you something to drink?
 - Ask location
 	if {relationship} == 1.0:
-		Bailey: Amazing
+		if {has_location} == true:
+			[signal arg="get_location"]
+			Bailey: The Location? I think they put it in {answer}. But that doesn't matter, the only important location is the bar, where we can see each other in many ways. *wink*.
+		else:
+			[signal arg="get_not_location"]
+			Bailey: The Location? i have no idea, but you can always come to the bar to make my day, and yours, better. *wink*
 	elif {relationship} == 0.0:
-		Bailey: Neutral
+		if {has_location} == true:
+			[signal arg="get_location"]
+			Bailey: The only thing i know is that isn't in the {answer}. Why do you need to know that?
+		else:
+			Bailey: I know nothing about it. Why do you need to know?
 	else:
-		Bailey: Bad
+		Bailey: Oh... you.... Why would i know that?
 - Ask code
 	if {relationship} == 1.0:
-		Bailey: <Empty Text Event>
+		if {has_code} > 0.0:
+			[signal arg="Bailey"]
+			Bailey: The code? Some people were talking about it. The {position} digit is X. Now how and when do i get my reward?*wink*
+		else:
+			Bailey: The code? I don't know that, but i can help you in other ways. *wink*
 	elif {relationship} == 0.0:
-		Bailey: <Empty Text Event>
+		if {has_code} > 0.0:
+			[signal arg="Bailey"]
+			Bailey: The code? Well, i think the {position} starts with {answer}. Do you need anything from there?
+		else:
+			Bailey: The code? I don't know anything about it. Do you need anything from there?
 	else:
-		Bailey: <Empty Text Event>
+		Bailey: Oh... you.... Why would i know that?
 - Ask person
 	if {relationship} == 1.0:
-		Bailey: <Empty Text Event>
+		Bailey: Oh, you can know me in any way, shape and form. *wink*
 	elif {relationship} == 0.0:
-		Bailey: <Empty Text Event>
+		Hello, nice to meet you. Can I get you a drink?
 	else:
-		Bailey: <Empty Text Event>
+		I dont have time for that, people are thirsty.
