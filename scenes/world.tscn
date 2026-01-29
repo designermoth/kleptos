@@ -63,13 +63,12 @@ process_physics_priority = 300
 script = ExtResource("2_k0juu")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1658930382 node_paths=PackedStringArray("follow_target", "look_at_target")]
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1658930382 node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1, 0, 0, 0, 0.24755687, 0.96887237, 0, -0.96887237, 0.24755687, 0, 6.125, 1.565)
 top_level = true
 script = ExtResource("3_71j4m")
 follow_mode = 2
 follow_target = NodePath("../Player")
-look_at_target = NodePath("../Player")
 tween_resource = SubResource("Resource_i7141")
 follow_offset = Vector3(0, 6.125, 1.565)
 follow_damping = true

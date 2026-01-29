@@ -1,0 +1,20 @@
+join Estella rightmost
+Estella: Hello Darling
+- Ask location
+	if {relationship} == 1.0:
+		Estella: Amazing
+	elif {relationship} == 0.0:
+		Neutral
+	else:
+		Bad
+- Ask code
+	if {relationship} == 1.0:
+		<Empty Text Event>
+	elif {relationship} == 0.0:
+		<Empty Text Event>
+	else:
+		<Empty Text Event>
+- Ask person
+	if {relationship} == 1.0:
+	elif {relationship} == 0.0:
+	else:
