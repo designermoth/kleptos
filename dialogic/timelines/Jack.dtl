@@ -20,13 +20,13 @@ Jack: Wassup Bro! All good?
 	if {relationship} == 1.0:
 		if {has_code} > 0.0:
 			[signal arg="Jack"]
-			Jack: The code? That is easier then the time i scored tap in. The {position} is {answer}.
+			Jack: The code? That is easier then the time i scored tap in. The {position} Digit is {answer}.
 		else:
 			Jack: The code? I don't know that, what i know is that when I scored that bicycle kick it was siiiiick!! Bet you've seen it.
 	elif {relationship} == 0.0:
 		if {has_code} > 0.0:
 			[signal arg="Jack"]
-			Jack: Hmm.... not really sure. Heard something about the {position} is {answer}. But why do you care?
+			Jack: Hmm.... not really sure. Heard something about the {position} Digit is {answer}. But why do you care?
 		else:
 			Jack: Hmm....i have no idea bro..But why do you care?
 	else:

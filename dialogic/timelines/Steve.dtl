@@ -1,23 +1,42 @@
 join Steve rightmost
-Steve: Hello Darling
+Steve: Sup, you good?
 - Ask location
 	if {relationship} == 1.0:
-		Steve: Amazing
+		if {has_location} == true:
+			[signal arg="get_location"]
+			Steve: Ohh the object? It's in the {answer}, no worries! keeping information and people safe is my mission.
+		else:
+			[signal arg="get_not_location"]
+			Steve: Ohh the object? Keeping information and people safe is my mission, so i don't store sensitive data like that.
 	elif {relationship} == 0.0:
-		Steve: Neutral
+		if {has_location} == true:
+			[signal arg="get_location"]
+			Steve: Weren't you there when they stored it? I believe it was on {answer} drawer.
+		else:
+			Steve: Weren't you there when they stored it? I don't know.
 	else:
-		Steve: Bad
+		Steve: Oh... it's you. I don't think you should have that information.
 - Ask code
 	if {relationship} == 1.0:
-		Steve: <Empty Text Event>
+		if {has_code} > 0.0:
+			[signal arg="Steve"]
+			Steve: Ohh the code? The {position} Digit is {answer}, no worries! keeping information and people safe is my mission.
+		else:
+			Steve: Ohh the code? Keeping information and people safe is my mission, so I don't store sensitive data like that.
 	elif {relationship} == 0.0:
-		Steve: <Empty Text Event>
+		if {has_code} > 0.0:
+			[signal arg="Steve"]
+			Steve: The code? Are you sure you're fit to be in hold of that information? When you tend to forget those kinds of things? It had something to do with {position} Digit is {answer}.
+		else:
+			Steve: The code? Are you sure you're fit to be in hold of that information? When you tend to forget those kinds of things? I have no idea!
 	else:
-		Steve: <Empty Text Event>
+		Steve: Oh... it's you. I don't think you should have that information.
 - Ask person
 	if {relationship} == 1.0:
-		Steve: <Empty Text Event>
+		[signal arg="new_maskSteve"]
+		Steve: I can share some information with you, while keeping people safe.
 	elif {relationship} == 0.0:
-		Steve: <Empty Text Event>
+		[signal arg="new_maskSteve"]
+		Sup?, nice to meet you
 	else:
-		Steve: <Empty Text Event>
+		Go away, can't talk right now.
