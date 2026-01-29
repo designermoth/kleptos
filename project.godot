@@ -20,9 +20,22 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"character": "res://dialogic/characters/character.dch"
+}
+directories/dtl_directory={
+"timeline_steveparker": "res://dialogic/characters/timeline_steveparker.dtl"
+}
 layout/style_directory={}
+variables={
+"NewFolder": {},
+"characters": {
+"NewVar": "0.0"
+}
+}
+layout/style_list=[]
+layout/default_style="Default"
+glossary/default_case_sensitive=true
 
 [editor_plugins]
 

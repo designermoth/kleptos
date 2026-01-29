@@ -1,0 +1,8 @@
+character: Hello, who are you?
+- Andre | [else="hide"]
+	[signal arg="andre"]
+	if {characters.NewVar} == "":
+	character: Andre asked already
+	else:
+		character: Didnt ask already
+- Carmen Flores
