@@ -9,12 +9,14 @@ Simon: Hello, how may I enlighten you today?
 			[signal arg="get_not_location"]
 			Simon: I can help you with many thing, but that is a question that i don't know the answer. My apologies.
 	elif {relationship} == 0.0:
+		[signal arg="add_suspicion10"]
 		if {has_location} == true:
 			[signal arg="get_location"]
 			Simon: The only information i have is that isn't in the {answer}. How is that information relevant to you?
 		else:
 			Simon: I have no information about that. How is that information relevant to you?
 	else:
+		[signal arg="add_suspicion25"]
 		Simon: Oh... excuse me, why would i give you that information?
 - Ask code
 	if {relationship} == 1.0:
@@ -24,19 +26,23 @@ Simon: Hello, how may I enlighten you today?
 		else:
 			Simon: The code? That is a trick question....and i can't help with it. My apologies.	 *Kiss*
 	elif {relationship} == 0.0:
+		[signal arg="add_suspicion10"]
 		if {has_code} > 0.0:
 			[signal arg="Simon"]
 			Simon: The code? Well, the {position} Digit is {answer}. Did Estella asked you to open it ?
 		else:
 			Simon: The code? I don't have that information. Did Estella asked you to open it ?
 	else:
+		[signal arg="add_suspicion25"]
 		Simon: Oh... excuse me, why would I give you that information?
 - Ask person
 	if {relationship} == 1.0:
 		[signal arg="new_maskSimon"]
 		Simon: Want to get things up to date? Sure, i have some time to talk.
 	elif {relationship} == 0.0:
+		[signal arg="add_suspicion10"]
 		[signal arg="new_maskSimon"]
 		Nice to meet you. How are you liking the auction so far?
 	else:
+		[signal arg="add_suspicion25"]
 		I'm not one for small talk. My apologies.

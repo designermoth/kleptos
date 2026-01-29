@@ -9,12 +9,14 @@ Carmen: Ohhhh! Hi there!!!
 			[signal arg="get_not_location"]
 			Carmen: I'm sorry sunflower but i don't know where it is. But i can give you a shower of happy feelings!!*laughs*
 	elif {relationship} == 0.0:
+		[signal arg="add_suspicion10"]
 		if {has_location} == true:
 			[signal arg="get_location"]
 			Carmen: All I know is that it's not in the {answer}. Is it already time for the next auction?
 		else:
 			Carmen: I have no idea. Is it already time for the next auction?
 	else:
+		[signal arg="add_suspicion25"]
 		Carmen: Oh...i'm sorry i can't give you that information.
 - Ask code
 	if {relationship} == 1.0:
@@ -24,19 +26,23 @@ Carmen: Ohhhh! Hi there!!!
 		else:
 			Carmen: I'm sorry sweet cheeks i have no idea. The only thing that i know is that today it's gonna be awesome!!*laughs*
 	elif {relationship} == 0.0:
+		[signal arg="add_suspicion10"]
 		if {has_code} > 0.0:
 			[signal arg="Carmen"]
 			Carmen: The code? Well, i think the {position} Digit starts with {answer}. Is it already time for the next auction?
 		else:
 			Carmen: The code? I have no idea. Is it already time for the next auction?
 	else:
+		[signal arg="add_suspicion25"]
 		Carmen: Oh...i'm sorry I can't give you that information.
 - Ask person
 	if {relationship} == 1.0:
 		[signal arg="new_maskCarmen"]
 		Carmen: I would love to catch up cookie. *laughs*
 	elif {relationship} == 0.0:
+		[signal arg="add_suspicion10"]
 		[signal arg="new_maskCarmen"]
 		Oh hello there!! Nice to meet you.
 	else:
+		[signal arg="add_suspicion25"]
 		I'm sorry the next auction is about to start, can't talk now.

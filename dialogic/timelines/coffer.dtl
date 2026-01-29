@@ -1,0 +1,2 @@
+[text_input text="Please enter the code:" var="input" placeholder="000"]
+[signal arg="check_code"]
