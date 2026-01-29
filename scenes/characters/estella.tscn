@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cm38hfidmn5jr"]
+
+[ext_resource type="PackedScene" uid="uid://bjp8dn8u44ym0" path="res://scenes/character.tscn" id="1_wqtmb"]
+[ext_resource type="Resource" uid="uid://bqivrmtc4io5f" path="res://resources/Estella.tres" id="2_xobag"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xobag"]
+albedo_color = Color(0.7294118, 0.4509804, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xobag"]
+material = SubResource("StandardMaterial3D_xobag")
+
+[node name="Estella" unique_id=681860811 instance=ExtResource("1_wqtmb")]
+character_res = ExtResource("2_xobag")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=873426407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_xobag")

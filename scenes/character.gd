@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var interaction_text : String
+@export var character_res : Character
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,10 +15,10 @@ func _process(delta: float) -> void:
 func _on_interaction_area_3d_body_entered(player: Player) -> void:
 	if player == null:
 		return
-	player.emit_signal("EnteredInteraction",interaction_text)
+	player.emit_signal("EnteredInteraction", character_res)
 
 
 func _on_interaction_area_3d_body_exited(player: Player) -> void:
 	if player == null:
 		return
-	player.emit_signal("ExitedInteraction",interaction_text)
+	player.emit_signal("ExitedInteraction", character_res)

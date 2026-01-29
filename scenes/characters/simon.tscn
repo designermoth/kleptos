@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ol7fe66wdql3"]
+
+[ext_resource type="PackedScene" uid="uid://bjp8dn8u44ym0" path="res://scenes/character.tscn" id="1_o51s8"]
+[ext_resource type="Resource" uid="uid://ctougw8sfvy0t" path="res://resources/Simon.tres" id="2_vq36s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq36s"]
+albedo_color = Color(1, 0.34901962, 0.14117648, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1ufn7"]
+material = SubResource("StandardMaterial3D_vq36s")
+
+[node name="Simon" unique_id=681860811 instance=ExtResource("1_o51s8")]
+character_res = ExtResource("2_vq36s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=656854682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_1ufn7")

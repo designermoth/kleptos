@@ -8,6 +8,7 @@ signal ExitedInteraction
 const SPEED = 5.0
 
 var is_character_in_range = false
+var curr_character : Character
 
 func _ready() -> void:
 	EnteredInteraction.connect(_on_entered_interaction)
@@ -36,19 +37,21 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_character_in_range:
 		Dialogic.VAR.relationship = 1
-		Dialogic.start("Estella")
+		Dialogic.start(curr_character.name)
 
 
 #region Interaction
 
 
-func _on_entered_interaction(s : String):
+func _on_entered_interaction(c : Character):
 	is_character_in_range = true
-	$HUD.update_interaction(s)
+	curr_character = c
+	$HUD.update_interaction(c.name)
 
 
-func _on_exited_interaction(s : String):
+func _on_exited_interaction(c : Character):
 	is_character_in_range = false
+	curr_character = null
 	$HUD.update_interaction("",true)
 
 #endregion

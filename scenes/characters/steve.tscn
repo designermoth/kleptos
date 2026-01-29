@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cadwfnaacd6ta"]
+
+[ext_resource type="PackedScene" uid="uid://bjp8dn8u44ym0" path="res://scenes/character.tscn" id="1_oxqad"]
+[ext_resource type="Resource" uid="uid://g3fijinvpafg" path="res://resources/Steve.tres" id="2_3f6q6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3f6q6"]
+albedo_color = Color(0.0018132298, 0.11131535, 0.5423577, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mx0p1"]
+material = SubResource("StandardMaterial3D_3f6q6")
+
+[node name="Steve" unique_id=681860811 instance=ExtResource("1_oxqad")]
+character_res = ExtResource("2_3f6q6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=1318196916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_mx0p1")

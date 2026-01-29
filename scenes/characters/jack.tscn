@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b2gbu74ft2tkw"]
+
+[ext_resource type="PackedScene" uid="uid://bjp8dn8u44ym0" path="res://scenes/character.tscn" id="1_yp7tc"]
+[ext_resource type="Resource" uid="uid://1umi2x8aqr22" path="res://resources/Jack.tres" id="2_l076h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l076h"]
+albedo_color = Color(1, 0.5114252, 0.5032273, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ic1b4"]
+material = SubResource("StandardMaterial3D_l076h")
+
+[node name="Jack" unique_id=681860811 instance=ExtResource("1_yp7tc")]
+character_res = ExtResource("2_l076h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=1415405102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_ic1b4")
