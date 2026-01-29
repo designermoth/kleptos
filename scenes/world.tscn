@@ -82,19 +82,19 @@ align_position_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Jack" parent="." unique_id=681860811 instance=ExtResource("5_w7kh3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.814017, 0, -6.510561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7048373, 0, -7.2949195)
 
 [node name="Simon" parent="." unique_id=1166345168 instance=ExtResource("6_e3hyu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40639, 0, 8.148592)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.870426, 0, 8.478578)
 
 [node name="Bailey" parent="." unique_id=1828700770 instance=ExtResource("7_q5onr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.077824, 0, 1.1563029)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.951282, 0, 0.027816057)
 
 [node name="Steve" parent="." unique_id=934235761 instance=ExtResource("8_jhx03")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4772635, 0, -5.0923796)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.278858, 0, -6.9595137)
 
 [node name="Carmen" parent="." unique_id=1448720802 instance=ExtResource("9_o8fc1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2700918, 0, 7.7132463)
 
 [node name="Estella" parent="." unique_id=1788090963 instance=ExtResource("10_xo05s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.505344, -9.536743e-07, 2.5983224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.136219, -9.536743e-07, 0.7493272)

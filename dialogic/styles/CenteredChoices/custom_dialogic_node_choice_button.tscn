@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://okdx4pgc0xyi"]
+
+[ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="1_gkylk"]
+[ext_resource type="Texture2D" uid="uid://wowpjlt8gqwt" path="res://icon.svg" id="1_m6sr2"]
+[ext_resource type="Script" uid="uid://cws2qc2hlbfx4" path="res://dialogic/styles/CenteredChoices/choice_controller.gd" id="3_xiq7p"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xiq7p"]
+size = Vector2(20, 20)
+
+[node name="DialogicNode_ChoiceButton" type="Button" unique_id=1055789422]
+text = "Ask for location"
+icon = ExtResource("1_m6sr2")
+script = ExtResource("1_gkylk")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"
+
+[node name="ChoiceController" type="Control" parent="." unique_id=1267341922]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_xiq7p")
+icon_array = [ExtResource("1_m6sr2"), ExtResource("1_m6sr2"), SubResource("PlaceholderTexture2D_xiq7p")]
