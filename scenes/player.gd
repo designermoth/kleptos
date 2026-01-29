@@ -11,7 +11,8 @@ const RAY_LENGTH = 1000
 @export var current_mask : Character
 var is_character_in_range = false
 var character_interactable : Character
-
+var suspicion_level = 0
+@export var max_suspicion = 100
 
 var mask_held : Character
 
@@ -78,6 +79,13 @@ func add_mask(c : Character):
 	for m in $Pivot.get_children():
 		if m.character == c:
 			m.visible = true
+
+
+func add_suspicion(sus : int):
+	suspicion_level += sus
+	$HUD.add_suspicion(suspicion_level)
+	if suspicion_level >= max_suspicion:
+		print("SUS ENDING")
 
 
 #region Interaction

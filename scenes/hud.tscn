@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dyw4ujgwv7ik1"]
 
 [ext_resource type="Script" uid="uid://ctyj8puw2vvhg" path="res://scenes/hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://wowpjlt8gqwt" path="res://icon.svg" id="2_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://xenv7dlkhhbn" path="res://sprites/T_VFX_Glow_1.png" id="3_6fi6k"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1123302383]
 script = ExtResource("1_ahhtf")
@@ -25,3 +27,25 @@ grow_vertical = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1478231171]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="SuspicionMeter" type="TextureProgressBar" parent="Control/MarginContainer" unique_id=1303958695]
+custom_minimum_size = Vector2(27.28, 171.42)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("2_5ysmq")
+texture_progress = ExtResource("3_6fi6k")
