@@ -1,27 +1,40 @@
 join Estella rightmost
-Estella: Hello Darling
+Estella: Hello Darling!
 - Ask location
 	if {relationship} == 1.0:
-		Estella: Amazing
 		if {has_location} == true:
 			[signal arg="get_location"]
+			Estella: The object? I think it was stored on the {answer} in the backstage. The perfect place to store the items and... do other stuff. *wink*
+		else:
+			[signal arg="get_not_location"]
+			Estella: The object? I have no idea hot stuff, but you can be the object of my admiration....later *wink*
 	elif {relationship} == 0.0:
-		Estella: Neutral
+		if {has_location} == true:
+			[signal arg="get_location"]
+			Estella: I'm not sure about that, but i know that it's not in {answer}. Do you need it for something darling?
+		else:
+			Estella: I have no clue darling... Do you need it for something?
 	else:
-		Estella: Bad
+		Estella: Oh... it's you. Why would i tell you that?
 - Ask code
 	if {relationship} == 1.0:
 		if {has_code} > 0.0:
 			[signal arg="Estella"]
 			Estella: Oh, The code? You're forgetful today, huh? You told me earlier, i think the {position} digit was {answer}. See you later. *Kiss*
+		else:
+			Estella: Oh, handsome darling, i don't care about that. But i can care about you...later *Kiss*
 	elif {relationship} == 0.0:
-		Estella: <Empty Text Event>
+		if {has_code} > 0.0:
+			[signal arg="Estella"]
+			Estella: Sure....if i'm not mistaken the {position} was {answer}. What do you need it for darling?
+		else:
+			Estella: I have no clue darling... What do you need it for?
 	else:
-		Estella: <Empty Text Event>
+		Estella: Oh... it's you. Why would i tell you that?
 - Ask person
 	if {relationship} == 1.0:
-		Estella: <Empty Text Event>
+		Estella: Oh, I'd love for you to know me better...In every way possible *wink*
 	elif {relationship} == 0.0:
-		Estella: <Empty Text Event>
+		Oh darling, i don't mind talking about my greatness, for a bit.
 	else:
-		Estella: <Empty Text Event>
+		I don't have time for that at the moment.

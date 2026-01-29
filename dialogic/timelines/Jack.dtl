@@ -1,23 +1,40 @@
 join Jack rightmost
-Jack: Hello Darling
+Jack: Wassup Bro! All good?
 - Ask location
 	if {relationship} == 1.0:
-		Jack: Amazing
+		if {has_location} == true:
+			[signal arg="get_location"]
+			Jack: The object? I go to the Golden Lotus - Ah, you may not know, but it's the best casino in Macau - but yeah, I'm a regular there, and they are real careful with their safes there. I bet it's in the {answer}.
+		else:
+			[signal arg="get_not_location"]
+			Jack: The object? I go to the Golden Lotus - Ah, you may not know, but it's the best casino in Macau - but yeah, I'm a regular there, and they are real careful with their safes there. But here i have no idea.
 	elif {relationship} == 0.0:
-		Jack: Neutral
+		if {has_location} == true:
+			[signal arg="get_location"]
+			Jack: As far as i know it's not in {answer}. But that's not my job to know. But it's yours, right?
+		else:
+			Jack: Hmm....i have no idea But that's not my job to know. But it's yours, right?
 	else:
-		Jack: Bad
+		Jack: Oh... it's you. Why would i tell you that?
 - Ask code
 	if {relationship} == 1.0:
-		Jack: <Empty Text Event>
+		if {has_code} > 0.0:
+			[signal arg="Jack"]
+			Jack: The code? That is easier then the time i scored tap in. The {position} is {answer}.
+		else:
+			Jack: The code? I don't know that, what i know is that when I scored that bicycle kick it was siiiiick!! Bet you've seen it.
 	elif {relationship} == 0.0:
-		Jack: <Empty Text Event>
+		if {has_code} > 0.0:
+			[signal arg="Jack"]
+			Jack: Hmm.... not really sure. Heard something about the {position} is {answer}. But why do you care?
+		else:
+			Jack: Hmm....i have no idea bro..But why do you care?
 	else:
-		Jack: <Empty Text Event>
+		Jack: Oh... it's you. Why would i tell you that?
 - Ask person
 	if {relationship} == 1.0:
-		Jack: <Empty Text Event>
+		Jack:  You're a real eye candy, i would gladly tell u all about me. *wink*
 	elif {relationship} == 0.0:
-		Jack: <Empty Text Event>
+		Oh hey, nice to meet you bro.
 	else:
-		Jack: <Empty Text Event>
+		I don't have time for that at the moment.
