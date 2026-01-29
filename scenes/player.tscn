@@ -2,7 +2,14 @@
 
 [ext_resource type="Script" uid="uid://v614ip7c0yyl" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dyw4ujgwv7ik1" path="res://scenes/hud.tscn" id="2_g2els"]
-[ext_resource type="Resource" uid="uid://g3fijinvpafg" path="res://resources/Steve.tres" id="2_qhqgy"]
+[ext_resource type="Resource" uid="uid://1umi2x8aqr22" path="res://resources/Jack.tres" id="2_qhqgy"]
+[ext_resource type="Resource" uid="uid://bgakqggghuubb" path="res://resources/Bailey.tres" id="2_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://osblfylkq1t2" path="res://scenes/mask.tscn" id="4_qlg0r"]
+[ext_resource type="Resource" uid="uid://bqivrmtc4io5f" path="res://resources/Estella.tres" id="5_ur7pv"]
+[ext_resource type="Resource" uid="uid://yyxct5mvtpuy" path="res://resources/Carmen.tres" id="7_y4r1p"]
+[ext_resource type="Resource" uid="uid://g3fijinvpafg" path="res://resources/Steve.tres" id="8_d2wvv"]
+[ext_resource type="Resource" uid="uid://ctougw8sfvy0t" path="res://resources/Simon.tres" id="9_3v2ag"]
+[ext_resource type="Resource" uid="uid://xhkwscm7x7gm" path="res://resources/Kleptos.tres" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -15,7 +22,7 @@ material = SubResource("StandardMaterial3D_3vyb7")
 [node name="Player" type="CharacterBody3D" unique_id=190821143]
 collision_layer = 2
 script = ExtResource("1_3vyb7")
-current_mask = ExtResource("2_qhqgy")
+current_mask = ExtResource("2_qlg0r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=743533042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -26,3 +33,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_g2els")
 
 [node name="HUD" parent="." unique_id=1123302383 instance=ExtResource("2_g2els")]
+
+[node name="Pivot" type="Node3D" parent="." unique_id=848315719]
+transform = Transform3D(0.5446391, 0, -0.8386705, 0, 1, 0, 0.8386705, 0, 0.5446391, 0, 3, 0)
+
+[node name="EstellaMask" parent="Pivot" unique_id=336069670 instance=ExtResource("4_qlg0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -1.4)
+character = ExtResource("5_ur7pv")
+
+[node name="JackMask" parent="Pivot" unique_id=707840688 instance=ExtResource("4_qlg0r")]
+transform = Transform3D(0.62387955, 0, -0.7815205, 0, 1, 0, 0.7815205, 0, 0.62387955, 1.1335343, -1, -0.95268905)
+character = ExtResource("2_qhqgy")
+
+[node name="CarmenMask" parent="Pivot" unique_id=1444627387 instance=ExtResource("4_qlg0r")]
+transform = Transform3D(0.62387955, 0, 0.78152055, 0, 1, 0, -0.78152055, 0, 0.62387955, -1.1559789, -1, -0.94050276)
+character = ExtResource("7_y4r1p")
+
+[node name="BaileyMask" parent="Pivot" unique_id=2098727078 instance=ExtResource("4_qlg0r")]
+transform = Transform3D(-0.22324988, 0, 0.97476125, 0, 1, 0, -0.97476125, 0, -0.22324988, -1.2503656, -1, 0.31600288)
+character = ExtResource("2_qlg0r")
+
+[node name="SteveMask" parent="Pivot" unique_id=1342799350 instance=ExtResource("4_qlg0r")]
+transform = Transform3D(-0.90107703, 0, 0.43365908, 0, 1, 0, -0.43365908, 0, -0.90107703, -0.5211706, -1, 1.3760289)
+character = ExtResource("8_d2wvv")
+
+[node name="SimonMask" parent="Pivot" unique_id=9579867 instance=ExtResource("4_qlg0r")]
+transform = Transform3D(-0.90107703, 0, -0.43365914, 0, 1, 0, 0.43365914, 0, -0.90107703, 0.60625935, -1, 1.3866647)
+character = ExtResource("9_3v2ag")
+
+[node name="KleptosMask" parent="Pivot" unique_id=1978292203 instance=ExtResource("4_qlg0r")]
+transform = Transform3D(-0.22325017, 0, -0.9747612, 0, 1, 0, 0.9747612, 0, -0.22325017, 1.2869701, -1, 0.32305276)
+character = ExtResource("10_y4r1p")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://osblfylkq1t2"]
+
+[ext_resource type="PackedScene" uid="uid://88b7owekglr2" path="res://3D models/characters/Mascara Base.glb" id="1_in0c2"]
+[ext_resource type="Script" uid="uid://jn6r7ggys3h6" path="res://scenes/mask.gd" id="1_rv8xw"]
+
+[node name="Mask" type="Node3D" unique_id=336069670]
+script = ExtResource("1_rv8xw")
+
+[node name="Mascara Base" parent="." unique_id=1234733950 instance=ExtResource("1_in0c2")]
+transform = Transform3D(0.72, 0, 0, 0, 0.5091169, 0.5091169, 0, -0.5091169, 0.5091169, 0, 0, 0)
