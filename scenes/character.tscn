@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bjp8dn8u44ym0"]
+
+[ext_resource type="Script" uid="uid://d0qk3e6cmdr31" path="res://scenes/character.gd" id="1_agfs1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dkjbp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dkjbp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dkjbp"]
+radius = 3.0
+
+[node name="Character" type="Node3D" unique_id=681860811]
+script = ExtResource("1_agfs1")
+interaction_text = "Simon"
+
+[node name="Placeholder" type="MeshInstance3D" parent="." unique_id=421363857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_dkjbp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1099207709]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=432452268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_dkjbp")
+
+[node name="InteractionArea3D" type="Area3D" parent="." unique_id=1359497755]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea3D" unique_id=914924873]
+shape = SubResource("SphereShape3D_dkjbp")
+
+[connection signal="body_entered" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_entered"]
+[connection signal="body_exited" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_exited"]

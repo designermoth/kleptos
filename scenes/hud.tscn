@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dyw4ujgwv7ik1"]
+
+[ext_resource type="Script" uid="uid://ctyj8puw2vvhg" path="res://scenes/hud.gd" id="1_ahhtf"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1123302383]
+script = ExtResource("1_ahhtf")
+
+[node name="Control" type="Control" parent="." unique_id=2041318828]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=471038426]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractionLabel" type="Label" parent="Control/CenterContainer" unique_id=904827662]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
