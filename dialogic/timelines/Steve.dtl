@@ -1,0 +1,23 @@
+join Steve rightmost
+Steve: Hello Darling
+- Ask location
+	if {relationship} == 1.0:
+		Steve: Amazing
+	elif {relationship} == 0.0:
+		Steve: Neutral
+	else:
+		Steve: Bad
+- Ask code
+	if {relationship} == 1.0:
+		Steve: <Empty Text Event>
+	elif {relationship} == 0.0:
+		Steve: <Empty Text Event>
+	else:
+		Steve: <Empty Text Event>
+- Ask person
+	if {relationship} == 1.0:
+		Steve: <Empty Text Event>
+	elif {relationship} == 0.0:
+		Steve: <Empty Text Event>
+	else:
+		Steve: <Empty Text Event>

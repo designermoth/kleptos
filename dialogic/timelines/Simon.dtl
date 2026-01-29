@@ -1,0 +1,23 @@
+join Simon rightmost
+Simon: Hello Darling
+- Ask location
+	if {relationship} == 1.0:
+		Simon: Amazing
+	elif {relationship} == 0.0:
+		Simon: Neutral
+	else:
+		Simon: Bad
+- Ask code
+	if {relationship} == 1.0:
+		Simon: <Empty Text Event>
+	elif {relationship} == 0.0:
+		Simon: <Empty Text Event>
+	else:
+		Simon: <Empty Text Event>
+- Ask person
+	if {relationship} == 1.0:
+		Simon: <Empty Text Event>
+	elif {relationship} == 0.0:
+		Simon: <Empty Text Event>
+	else:
+		Simon: <Empty Text Event>

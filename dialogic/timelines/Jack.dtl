@@ -1,0 +1,23 @@
+join Jack rightmost
+Jack: Hello Darling
+- Ask location
+	if {relationship} == 1.0:
+		Jack: Amazing
+	elif {relationship} == 0.0:
+		Jack: Neutral
+	else:
+		Jack: Bad
+- Ask code
+	if {relationship} == 1.0:
+		Jack: <Empty Text Event>
+	elif {relationship} == 0.0:
+		Jack: <Empty Text Event>
+	else:
+		Jack: <Empty Text Event>
+- Ask person
+	if {relationship} == 1.0:
+		Jack: <Empty Text Event>
+	elif {relationship} == 0.0:
+		Jack: <Empty Text Event>
+	else:
+		Jack: <Empty Text Event>

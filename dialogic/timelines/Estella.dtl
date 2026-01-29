@@ -4,17 +4,20 @@ Estella: Hello Darling
 	if {relationship} == 1.0:
 		Estella: Amazing
 	elif {relationship} == 0.0:
-		Neutral
+		Estella: Neutral
 	else:
-		Bad
+		Estella: Bad
 - Ask code
 	if {relationship} == 1.0:
-		<Empty Text Event>
+		Estella: <Empty Text Event>
 	elif {relationship} == 0.0:
-		<Empty Text Event>
+		Estella: <Empty Text Event>
 	else:
-		<Empty Text Event>
+		Estella: <Empty Text Event>
 - Ask person
 	if {relationship} == 1.0:
+		Estella: <Empty Text Event>
 	elif {relationship} == 0.0:
+		Estella: <Empty Text Event>
 	else:
+		Estella: <Empty Text Event>
