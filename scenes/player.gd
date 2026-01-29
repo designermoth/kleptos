@@ -6,10 +6,14 @@ signal ExitedInteraction
 
 
 const SPEED = 8.0
+const RAY_LENGTH = 1000
 
 @export var current_mask : Character
 var is_character_in_range = false
 var character_interactable : Character
+
+
+var mask_held : Character
 
 func _ready() -> void:
 	EnteredInteraction.connect(_on_entered_interaction)
@@ -17,6 +21,28 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	raycast_mask()
+	add_movement(delta)
+
+
+func raycast_mask():
+	var space_state = get_world_3d().direct_space_state
+	var cam = get_viewport().get_camera_3d()
+	var mousepos = get_viewport().get_mouse_position()
+
+	var origin = cam.project_ray_origin(mousepos)
+	var end = origin + cam.project_ray_normal(mousepos) * RAY_LENGTH
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_bodies = false
+	query.collide_with_areas = true
+
+	var result = space_state.intersect_ray(query)
+	if result.size() > 0 && $Pivot.visible && result.collider.owner.visible:
+		mask_held = result.collider.owner.character
+	else:
+		mask_held = null
+
+func add_movement(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -41,11 +67,17 @@ func _input(event: InputEvent) -> void:
 		Dialogic.VAR.has_location = character_interactable.has_location
 		Dialogic.VAR.has_code = character_interactable.has_code
 		Dialogic.start(character_interactable.name)
+	if event.is_action_pressed("mask"):
+		$Pivot.visible = true
+	if event.is_action_released("mask"):
+		$Pivot.visible = false
+	if event is InputEventMouseButton && not mask_held == null:
+		current_mask = mask_held
 
-
-func change_character(c : Character):
-	current_mask = c
-	print(c.name)
+func add_mask(c : Character):
+	for m in $Pivot.get_children():
+		if m.character == c:
+			m.visible = true
 
 
 #region Interaction

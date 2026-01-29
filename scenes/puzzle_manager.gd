@@ -33,6 +33,13 @@ func setup():
 func _on_get_information(argument : String):
 	if argument == "get_location":
 		Dialogic.VAR.answer = str(LOCATIONS.find_key(location))
+	elif argument == "get_not_location":
+		var loc = location + 1 if location <= 1 else location - 1
+		Dialogic.VAR.answer = str(LOCATIONS.find_key(loc))
+	elif argument.begins_with("new_mask"):
+		var c = character_array[character_array.find_custom(func (x) : return x.name == argument.right(argument.length() - 8))]
+		owner.get_node("Player").add_mask(c)
+		
 	else: 
 		var c = character_array[character_array.find_custom(func (x) : return x.name == argument)]
 		Dialogic.VAR.answer = code[c.has_code - 1] if c.has_code else ""
