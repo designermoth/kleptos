@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1_10c6i")
 name = "Carmen"
-Estella = 2
-Bailey = 1
+Bailey = 2
+Simon = 2
+Carmen = 3
+Steve = 1
+Kleptos = 1
 metadata/_custom_type_script = "uid://0i3htljp0410"

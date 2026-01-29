@@ -19,10 +19,69 @@ albedo_color = Color(0.1724602, 0.00037077523, 0.38952014, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
 material = SubResource("StandardMaterial3D_3vyb7")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4r1p"]
+albedo_color = Color(0.7154618, 0.528537, 0.91802305, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2wvv"]
+albedo_color = Color(0.9242398, 0.53064936, 0.3701429, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3v2ag"]
+albedo_color = Color(0.8568603, 0.6644436, 0.1817098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jej6c"]
+albedo_color = Color(0.4788031, 0.7941282, 0.7423092, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1ej7"]
+albedo_color = Color(0.07058824, 0.2901961, 0.7137255, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oprun"]
+albedo_color = Color(0.78603566, 0.20925322, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8ls1"]
+
+[sub_resource type="Animation" id="Animation_d2wvv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y4r1p"]
+resource_name = "rotate_masks"
+length = 10.0
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d2wvv"]
+_data = {
+&"RESET": SubResource("Animation_d2wvv"),
+&"rotate_masks": SubResource("Animation_y4r1p")
+}
+
 [node name="Player" type="CharacterBody3D" unique_id=190821143]
 collision_layer = 2
 script = ExtResource("1_3vyb7")
-current_mask = ExtResource("2_qlg0r")
+current_mask = ExtResource("10_y4r1p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=743533042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -35,39 +94,50 @@ mesh = SubResource("CapsuleMesh_g2els")
 [node name="HUD" parent="." unique_id=1123302383 instance=ExtResource("2_g2els")]
 
 [node name="Pivot" type="Node3D" parent="." unique_id=848315719]
-transform = Transform3D(0.5446391, 0, -0.8386705, 0, 1, 0, 0.8386705, 0, 0.5446391, 0, 3, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 3, 0)
 visible = false
 
 [node name="EstellaMask" parent="Pivot" unique_id=336069670 instance=ExtResource("4_qlg0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -1.4)
 visible = false
 character = ExtResource("5_ur7pv")
+material = SubResource("StandardMaterial3D_y4r1p")
 
 [node name="JackMask" parent="Pivot" unique_id=707840688 instance=ExtResource("4_qlg0r")]
 transform = Transform3D(0.62387955, 0, -0.7815205, 0, 1, 0, 0.7815205, 0, 0.62387955, 1.1335343, -1, -0.95268905)
 visible = false
 character = ExtResource("2_qhqgy")
+material = SubResource("StandardMaterial3D_d2wvv")
 
 [node name="CarmenMask" parent="Pivot" unique_id=1444627387 instance=ExtResource("4_qlg0r")]
 transform = Transform3D(0.62387955, 0, 0.78152055, 0, 1, 0, -0.78152055, 0, 0.62387955, -1.1559789, -1, -0.94050276)
 visible = false
 character = ExtResource("7_y4r1p")
+material = SubResource("StandardMaterial3D_3v2ag")
 
 [node name="BaileyMask" parent="Pivot" unique_id=2098727078 instance=ExtResource("4_qlg0r")]
 transform = Transform3D(-0.22324988, 0, 0.97476125, 0, 1, 0, -0.97476125, 0, -0.22324988, -1.2503656, -1, 0.31600288)
 visible = false
 character = ExtResource("2_qlg0r")
+material = SubResource("StandardMaterial3D_jej6c")
 
 [node name="SteveMask" parent="Pivot" unique_id=1342799350 instance=ExtResource("4_qlg0r")]
 transform = Transform3D(-0.9010771, 0, 0.43365914, 0, 1, 0, -0.43365914, 0, -0.9010771, -0.5863241, -1, 1.3552098)
 visible = false
 character = ExtResource("8_d2wvv")
+material = SubResource("StandardMaterial3D_f1ej7")
 
 [node name="SimonMask" parent="Pivot" unique_id=9579867 instance=ExtResource("4_qlg0r")]
 transform = Transform3D(-0.90107703, 0, -0.43365914, 0, 1, 0, 0.43365914, 0, -0.90107703, 0.60625935, -1, 1.3866647)
 visible = false
 character = ExtResource("9_3v2ag")
+material = SubResource("StandardMaterial3D_oprun")
 
 [node name="KleptosMask" parent="Pivot" unique_id=1978292203 instance=ExtResource("4_qlg0r")]
 transform = Transform3D(-0.22325017, 0, -0.9747612, 0, 1, 0, 0.9747612, 0, -0.22325017, 1.2869701, -1, 0.32305276)
 character = ExtResource("10_y4r1p")
+material = SubResource("StandardMaterial3D_a8ls1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1581447930]
+libraries/ = SubResource("AnimationLibrary_d2wvv")
+autoplay = &"rotate_masks"

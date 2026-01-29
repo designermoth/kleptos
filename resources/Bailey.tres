@@ -5,4 +5,9 @@
 [resource]
 script = ExtResource("1_piql1")
 name = "Bailey"
+Jack = 2
+Bailey = 3
+Carmen = 1
+Steve = 2
+Kleptos = 2
 metadata/_custom_type_script = "uid://0i3htljp0410"

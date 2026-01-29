@@ -33,8 +33,10 @@ Jack: Wassup Bro! All good?
 		Jack: Oh... it's you. Why would i tell you that?
 - Ask person
 	if {relationship} == 1.0:
+		[signal arg="new_maskJack"]
 		Jack:  You're a real eye candy, i would gladly tell u all about me. *wink*
 	elif {relationship} == 0.0:
+		[signal arg="new_maskJack"]
 		Oh hey, nice to meet you bro.
 	else:
 		I don't have time for that at the moment.
