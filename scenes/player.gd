@@ -83,7 +83,7 @@ func add_mask(c : Character):
 
 func add_suspicion(sus : int):
 	suspicion_level += sus
-	$HUD.add_suspicion(suspicion_level)
+	$HUD.update_suspicion(suspicion_level)
 	if suspicion_level >= max_suspicion:
 		print("SUS ENDING")
 
