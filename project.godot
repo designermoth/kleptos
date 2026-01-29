@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="Kleptos"
+run/main_scene="uid://chbcp1ym0vvxt"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [dialogic]
 
@@ -26,7 +28,7 @@ layout/style_directory={}
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [file_customization]
 

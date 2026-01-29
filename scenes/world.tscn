@@ -1,3 +1,79 @@
 [gd_scene format=3 uid="uid://chbcp1ym0vvxt"]
 
+[ext_resource type="PackedScene" uid="uid://c0jv4ktkvx6ky" path="res://scenes/player.tscn" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_k0juu"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_71j4m"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_qfnet"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_rwgxs"]
+sky_material = SubResource("ProceduralSkyMaterial_nnsk1")
+
+[sub_resource type="Environment" id="Environment_4wyf3"]
+background_mode = 2
+sky = SubResource("Sky_rwgxs")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
+albedo_color = Color(0.26657522, 0.2665752, 0.2665752, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nnsk1"]
+material = SubResource("StandardMaterial3D_e5uuo")
+size = Vector2(20, 20)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e5uuo"]
+points = PackedVector3Array(10.154754, 0.15866803, 10.154754, -10.154754, -0.15866803, -10.154754, -10.154754, 0.15866803, -10.154754, 10.154754, -0.15866803, -10.154754, -10.154754, -0.15866803, 10.154754, -10.154754, 0.15866803, 10.154754, 10.154754, 0.15866803, -10.154754, 10.154754, -0.15866803, 10.154754)
+
+[sub_resource type="Resource" id="Resource_i7141"]
+script = ExtResource("4_qfnet")
+
 [node name="World" type="Node3D" unique_id=959917467]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=716047246]
+environment = SubResource("Environment_4wyf3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1739653455]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=2106118173]
+mesh = SubResource("PlaneMesh_nnsk1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=576758264]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=45345070]
+shape = SubResource("ConvexPolygonShape3D_e5uuo")
+
+[node name="Player" parent="." unique_id=190821143 instance=ExtResource("1_nnsk1")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1669862366]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.2475571, 0.9688733, 0, -0.9688733, 0.2475571, 0, 6.125, 1.565)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1837530763]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_k0juu")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1658930382 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(1, 0, 0, 0, 0.24755687, 0.96887237, 0, -0.96887237, 0.24755687, 0, 6.125, 1.565)
+top_level = true
+script = ExtResource("3_71j4m")
+follow_mode = 2
+follow_target = NodePath("../Player")
+look_at_mode = 2
+look_at_target = NodePath("../Player")
+tween_resource = SubResource("Resource_i7141")
+follow_offset = Vector3(0, 6.125, 1.565)
+follow_damping = true
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"

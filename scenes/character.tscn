@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bjp8dn8u44ym0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dkjbp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dkjbp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dkjbp"]
+radius = 3.0
+
+[node name="Character" type="Node3D" unique_id=681860811]
+
+[node name="Placeholder" type="MeshInstance3D" parent="." unique_id=421363857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_dkjbp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1099207709]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=432452268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_dkjbp")
+
+[node name="InteractionArea3D" type="Area3D" parent="." unique_id=1359497755]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea3D" unique_id=914924873]
+shape = SubResource("SphereShape3D_dkjbp")
