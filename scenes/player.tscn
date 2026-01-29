@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://v614ip7c0yyl" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dyw4ujgwv7ik1" path="res://scenes/hud.tscn" id="2_g2els"]
+[ext_resource type="Resource" uid="uid://g3fijinvpafg" path="res://resources/Steve.tres" id="2_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -14,6 +15,7 @@ material = SubResource("StandardMaterial3D_3vyb7")
 [node name="Player" type="CharacterBody3D" unique_id=190821143]
 collision_layer = 2
 script = ExtResource("1_3vyb7")
+current_mask = ExtResource("2_qhqgy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=743533042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

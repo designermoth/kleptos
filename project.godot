@@ -69,6 +69,10 @@ translation/translation_folder=""
 translation/save_mode=0
 translation/add_separator=false
 variables={
+"answer": "",
+"has_code": 0,
+"has_location": true,
+"position": "",
 "relationship": -1
 }
 glossary/default_case_sensitive=true
