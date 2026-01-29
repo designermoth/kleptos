@@ -20,13 +20,13 @@ Estella: Hello Darling!
 	if {relationship} == 1.0:
 		if {has_code} > 0.0:
 			[signal arg="Estella"]
-			Estella: Oh, The code? You're forgetful today, huh? You told me earlier, i think the {position} digit was {answer}. See you later. *Kiss*
+			Estella: Oh, The code? You're forgetful today, huh? You told me earlier, i think the {position} Digit was {answer}. See you later. *Kiss*
 		else:
 			Estella: Oh, handsome darling, i don't care about that. But i can care about you...later *Kiss*
 	elif {relationship} == 0.0:
 		if {has_code} > 0.0:
 			[signal arg="Estella"]
-			Estella: Sure....if i'm not mistaken the {position} was {answer}. What do you need it for darling?
+			Estella: Sure....if i'm not mistaken the {position} Digit was {answer}. What do you need it for darling?
 		else:
 			Estella: I have no clue darling... What do you need it for?
 	else:

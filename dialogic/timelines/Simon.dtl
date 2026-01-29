@@ -1,23 +1,42 @@
 join Simon rightmost
-Simon: Hello Darling
+Simon: Hello, how may I enlighten you today?
 - Ask location
 	if {relationship} == 1.0:
-		Simon: Amazing
+		if {has_location} == true:
+			[signal arg="get_location"]
+			Simon:  It's in the {answer}. As many things the answer is that simple. Glad to help.
+		else:
+			[signal arg="get_not_location"]
+			Simon: I can help you with many thing, but that is a question that i don't know the answer. My apologies.
 	elif {relationship} == 0.0:
-		Simon: Neutral
+		if {has_location} == true:
+			[signal arg="get_location"]
+			Simon: The only information i have is that isn't in the {answer}. How is that information relevant to you?
+		else:
+			Simon: I have no information about that. How is that information relevant to you?
 	else:
-		Simon: Bad
+		Simon: Oh... excuse me, why would i give you that information?
 - Ask code
 	if {relationship} == 1.0:
-		Simon: <Empty Text Event>
+		if {has_code} > 0.0:
+			[signal arg="Simon"]
+			Simon:  The code? That is a trick question..but, as many things, i know the {position} Digit is {answer}. Glad to help.
+		else:
+			Simon: The code? That is a trick question....and i can't help with it. My apologies.	 *Kiss*
 	elif {relationship} == 0.0:
-		Simon: <Empty Text Event>
+		if {has_code} > 0.0:
+			[signal arg="Simon"]
+			Simon: The code? Well, the {position} Digit is {answer}. Did Estella asked you to open it ?
+		else:
+			Simon: The code? I don't have that information. Did Estella asked you to open it ?
 	else:
-		Simon: <Empty Text Event>
+		Simon: Oh... excuse me, why would I give you that information?
 - Ask person
 	if {relationship} == 1.0:
-		Simon: <Empty Text Event>
+		[signal arg="new_maskSimon"]
+		Simon: Want to get things up to date? Sure, i have some time to talk.
 	elif {relationship} == 0.0:
-		Simon: <Empty Text Event>
+		[signal arg="new_maskSimon"]
+		Nice to meet you. How are you liking the auction so far?
 	else:
-		Simon: <Empty Text Event>
+		I'm not one for small talk. My apologies.
