@@ -23,10 +23,20 @@ PhantomCameraManager="*uid://duq6jhf6unyis"
 [dialogic]
 
 directories/dch_directory={
-"Estella": "res://dialogic/characters/Estella.dch"
+"Bailey": "res://dialogic/characters/Bailey.dch",
+"Carmen": "res://dialogic/characters/Carmen.dch",
+"Estella": "res://dialogic/characters/Estella.dch",
+"Jack": "res://dialogic/characters/Jack.dch",
+"Simon": "res://dialogic/characters/Simon.dch",
+"Steve": "res://dialogic/characters/Steve.dch"
 }
 directories/dtl_directory={
-"Estella": "res://dialogic/timelines/Estella.dtl"
+"Bailey": "res://dialogic/timelines/Bailey.dtl",
+"Carmen": "res://dialogic/timelines/Carmen.dtl",
+"Estella": "res://dialogic/timelines/Estella.dtl",
+"Jack": "res://dialogic/timelines/Jack.dtl",
+"Simon": "res://dialogic/timelines/Simon.dtl",
+"Steve": "res://dialogic/timelines/Steve.dtl"
 }
 layout/style_directory={
 "": "res://dialogic/styles/style.tres",
