@@ -54,7 +54,7 @@ transform = Transform3D(-0.22324988, 0, 0.97476125, 0, 1, 0, -0.97476125, 0, -0.
 character = ExtResource("2_qlg0r")
 
 [node name="SteveMask" parent="Pivot" unique_id=1342799350 instance=ExtResource("4_qlg0r")]
-transform = Transform3D(-0.90107703, 0, 0.43365908, 0, 1, 0, -0.43365908, 0, -0.90107703, -0.5211706, -1, 1.3760289)
+transform = Transform3D(-0.9010771, 0, 0.43365914, 0, 1, 0, -0.43365914, 0, -0.9010771, -0.5863241, -1, 1.3552098)
 character = ExtResource("8_d2wvv")
 
 [node name="SimonMask" parent="Pivot" unique_id=9579867 instance=ExtResource("4_qlg0r")]

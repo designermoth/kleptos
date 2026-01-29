@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cw858wlti0d5" path="res://scenes/characters/carmen.tscn" id="9_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://cm38hfidmn5jr" path="res://scenes/characters/estella.tscn" id="10_xo05s"]
 [ext_resource type="Script" uid="uid://dln2fu6vdbdsw" path="res://scenes/puzzle_manager.gd" id="11_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://b3dhrrvycjvdv" path="res://scenes/level.tscn" id="12_q5onr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -48,6 +49,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=2106118173]
+visible = false
 mesh = SubResource("PlaneMesh_nnsk1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=576758264]
@@ -60,7 +62,7 @@ shape = SubResource("ConvexPolygonShape3D_e5uuo")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1669862366]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.24755687, 0.96887237, 0, -0.96887237, 0.24755687, 0, 6.125, 1.565)
+transform = Transform3D(1, 0, 0, 0, 0.24755687, 0.96887237, 0, -0.96887237, 0.24755687, 0, 9, 1.565)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1837530763]
@@ -70,35 +72,41 @@ script = ExtResource("2_k0juu")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1658930382 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 0.24755687, 0.96887237, 0, -0.96887237, 0.24755687, 0, 6.125, 1.565)
+transform = Transform3D(1, 0, 0, 0, 0.24755687, 0.96887237, 0, -0.96887237, 0.24755687, 0, 9, 1.565)
 top_level = true
 script = ExtResource("3_71j4m")
 follow_mode = 2
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_i7141")
-follow_offset = Vector3(0, 6.125, 1.565)
+follow_offset = Vector3(0, 9, 1.565)
 follow_damping = true
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="Jack" parent="." unique_id=681860811 instance=ExtResource("5_w7kh3")]
+[node name="Characters" type="Node3D" parent="." unique_id=444255119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.617359, 0, -5.4195156)
+
+[node name="Jack" parent="Characters" unique_id=681860811 instance=ExtResource("5_w7kh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7048373, 0, -7.2949195)
 
-[node name="Simon" parent="." unique_id=1166345168 instance=ExtResource("6_e3hyu")]
+[node name="Simon" parent="Characters" unique_id=1166345168 instance=ExtResource("6_e3hyu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.870426, 0, 8.478578)
 
-[node name="Bailey" parent="." unique_id=1828700770 instance=ExtResource("7_q5onr")]
+[node name="Bailey" parent="Characters" unique_id=1828700770 instance=ExtResource("7_q5onr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.951282, 0, 0.027816057)
 
-[node name="Steve" parent="." unique_id=934235761 instance=ExtResource("8_jhx03")]
+[node name="Steve" parent="Characters" unique_id=934235761 instance=ExtResource("8_jhx03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.278858, 0, -6.9595137)
 
-[node name="Carmen" parent="." unique_id=1448720802 instance=ExtResource("9_o8fc1")]
+[node name="Carmen" parent="Characters" unique_id=1448720802 instance=ExtResource("9_o8fc1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2700918, 0, 7.7132463)
 
-[node name="Estella" parent="." unique_id=1788090963 instance=ExtResource("10_xo05s")]
+[node name="Estella" parent="Characters" unique_id=1788090963 instance=ExtResource("10_xo05s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.136219, -9.536743e-07, 0.7493272)
 
 [node name="PuzzleManager" type="Node3D" parent="." unique_id=67988540]
 script = ExtResource("11_e3hyu")
+
+[node name="Level" parent="." unique_id=1210619626 instance=ExtResource("12_q5onr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4701767, -3.8146973e-06, -7.216753)

@@ -5,7 +5,7 @@ signal EnteredInteraction
 signal ExitedInteraction
 
 
-const SPEED = 5.0
+const SPEED = 8.0
 
 @export var current_mask : Character
 var is_character_in_range = false
@@ -41,6 +41,11 @@ func _input(event: InputEvent) -> void:
 		Dialogic.VAR.has_location = character_interactable.has_location
 		Dialogic.VAR.has_code = character_interactable.has_code
 		Dialogic.start(character_interactable.name)
+
+
+func change_character(c : Character):
+	current_mask = c
+	print(c.name)
 
 
 #region Interaction
