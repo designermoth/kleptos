@@ -49,7 +49,9 @@ scene = ExtResource("6_spyy5")
 script = ExtResource("2_6htuw")
 scene = ExtResource("8_6htuw")
 overrides = {
+"boxes_min_size": "Vector2(250, 60)",
 "choices_custom_button": "\"res://dialogic/styles/CenteredChoices/custom_dialogic_node_choice_button.tscn\"",
+"font_size_custom": "20.0",
 "maximum_choices": "3.0"
 }
 

@@ -2,17 +2,33 @@
 
 [ext_resource type="Script" uid="uid://d0qk3e6cmdr31" path="res://scenes/character.gd" id="1_364n2"]
 [ext_resource type="Resource" uid="uid://xhkwscm7x7gm" path="res://resources/Kleptos.tres" id="2_0pl1d"]
+[ext_resource type="PackedScene" uid="uid://bk1pi71yrdixh" path="res://3D models/characters/MC ANIMATIONS.glb" id="3_bxyp8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dkjbp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dkjbp"]
 radius = 3.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq36s"]
-albedo_color = Color(1, 0.34901962, 0.14117648, 1)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xukor"]
+animation = &"Idle"
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0pl1d"]
-material = SubResource("StandardMaterial3D_vq36s")
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y1dlw"]
+animation = &"Walking"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v4t4s"]
+animation = &"Walking"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_s2jp6"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_xukor")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_y1dlw")
+blend_point_1/pos = 0.2
+blend_point_2/node = SubResource("AnimationNodeAnimation_v4t4s")
+blend_point_2/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxyp8"]
+albedo_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
 
 [node name="Kleptos" type="Node3D" unique_id=681860811]
 script = ExtResource("1_364n2")
@@ -32,10 +48,96 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_dkjbp")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1651348486]
+root_node = NodePath("../MC ANIMATIONS")
+tree_root = SubResource("AnimationNodeBlendSpace1D_s2jp6")
+anim_player = NodePath("../MC ANIMATIONS/AnimationPlayer")
+parameters/blend_position = 0.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=745758213]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_0pl1d")
+[node name="MC ANIMATIONS" parent="." unique_id=909745304 instance=ExtResource("3_bxyp8")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Skeleton3D" parent="MC ANIMATIONS/Armature" parent_id_path=PackedInt32Array(909745304, 442909229) index="0" unique_id=390379871]
+bones/0/position = Vector3(0.2873022, 1.1342659, -357.6991)
+bones/0/rotation = Quaternion(-0.72829336, -0.04945755, 0.013729665, 0.6833405)
+bones/1/rotation = Quaternion(-0.022306183, 0.015324508, 0.022449296, 0.9993817)
+bones/2/position = Vector3(-2.9802322e-07, 43.44645, -4.976987e-06)
+bones/2/rotation = Quaternion(0.01074952, 0.002785286, 0.014315447, 0.99983597)
+bones/3/position = Vector3(7.1525574e-07, 49.65313, -4.261734e-06)
+bones/3/rotation = Quaternion(0.010482434, 0.0029247287, 0.014351865, 0.9998379)
+bones/4/position = Vector3(-1.66893e-06, 55.859665, -2.3817256e-06)
+bones/4/rotation = Quaternion(0.10301623, -0.0021940777, 0.0034782258, 0.9946712)
+bones/5/rotation = Quaternion(-0.07357803, 0.008515988, -0.0018819759, 0.9972514)
+bones/6/position = Vector3(-4.4703484e-07, 154.18901, 25.984482)
+bones/7/position = Vector3(24.962992, 45.66509, -0.9310304)
+bones/7/rotation = Quaternion(-0.7040753, -0.28992796, 0.5423004, -0.35514802)
+bones/8/position = Vector3(5.414504e-07, 54.025208, 4.445741e-05)
+bones/8/rotation = Quaternion(0.4204112, 0.14411798, 0.051805165, 0.8943158)
+bones/9/position = Vector3(-6.2385425e-06, 59.301765, 4.114787e-06)
+bones/9/rotation = Quaternion(0.0014658748, -0.0016365098, 0.013040601, 0.99991256)
+bones/10/position = Vector3(-3.9916426e-07, 82.73234, -1.3375047e-06)
+bones/10/rotation = Quaternion(0.04242383, -0.1700101, 0.027656157, 0.9841403)
+bones/11/position = Vector3(-14.634641, 19.492304, 1.6688246e-06)
+bones/11/rotation = Quaternion(0.15444364, 0.06570842, 0.25329754, 0.9527172)
+bones/12/position = Vector3(-0.013528824, 19.499687, -4.0416126e-06)
+bones/12/rotation = Quaternion(-0.042853877, 0.08587943, -0.28467822, 0.9538064)
+bones/13/position = Vector3(-0.2886629, 16.211649, -6.1825594e-06)
+bones/13/rotation = Quaternion(-0.1215045, -0.07517238, -0.0016669504, 0.9897388)
+bones/14/position = Vector3(0.3021698, 11.892015, -2.4795532e-05)
+bones/15/position = Vector3(1.1587781e-07, 42.102707, 0.2816369)
+bones/15/rotation = Quaternion(0.06799992, 0.0031925682, 0.008830588, 0.9976412)
+bones/16/position = Vector3(-0.34749413, 22.634066, -1.4863064e-05)
+bones/16/rotation = Quaternion(0.15174985, -0.00012276556, 0.01902703, 0.98823583)
+bones/17/position = Vector3(0.28952646, 17.864016, 3.0608426e-06)
+bones/17/rotation = Quaternion(0.0704318, -0.00021796624, -0.0041129054, 0.99750817)
+bones/18/position = Vector3(0.05797386, 12.344596, 5.2332878e-05)
+bones/19/position = Vector3(-24.96301, 45.702274, -1.2747194)
+bones/19/rotation = Quaternion(0.6989076, -0.2903479, 0.5626979, 0.33256188)
+bones/20/position = Vector3(-5.106048e-06, 54.025238, 5.22929e-05)
+bones/20/rotation = Quaternion(0.34862015, -0.2367113, -0.06796755, 0.9043298)
+bones/21/position = Vector3(-2.9932226e-06, 59.28327, -2.2215761e-05)
+bones/21/rotation = Quaternion(0.0071914964, 0.00032459103, -0.0579365, 0.9982943)
+bones/22/position = Vector3(6.375669e-07, 82.73184, 3.6223355e-06)
+bones/22/rotation = Quaternion(0.053847525, 0.04668406, -0.0052110073, 0.99744374)
+bones/23/position = Vector3(15.12279, 19.278898, -1.859664e-05)
+bones/23/rotation = Quaternion(0.14547096, -0.062073518, -0.25466368, 0.9540081)
+bones/24/position = Vector3(0.8419533, 19.58394, 7.982982e-06)
+bones/24/rotation = Quaternion(-0.028758554, -0.0721835, 0.33193952, 0.94009507)
+bones/25/position = Vector3(1.3667116, 15.799607, -1.1501106e-05)
+bones/25/rotation = Quaternion(-0.1570368, 0.06520627, -0.1044295, 0.97988886)
+bones/26/position = Vector3(-2.208642, 10.882105, 1.960992e-05)
+bones/27/position = Vector3(4.817024e-06, 45.45831, 0.17595787)
+bones/27/rotation = Quaternion(0.059062824, -0.008865049, -0.009394691, 0.99817073)
+bones/28/position = Vector3(0.42690203, 20.636051, 7.810035e-06)
+bones/28/rotation = Quaternion(0.15134706, -0.0014474747, -0.026822485, 0.98811567)
+bones/29/position = Vector3(-0.17512801, 16.999678, -3.900401e-05)
+bones/29/rotation = Quaternion(0.07022738, 0.0017181849, -0.010442531, 0.99747497)
+bones/30/position = Vector3(-0.25178003, 12.269116, -2.4676323e-05)
+bones/31/rotation = Quaternion(0.1372481, 0.088330515, 0.981577, -0.099334836)
+bones/32/position = Vector3(-8.163488e-07, 146.93776, 5.380315e-06)
+bones/32/rotation = Quaternion(-0.18147147, -0.008338043, 0.0006302784, 0.9833607)
+bones/33/position = Vector3(-9.604253e-06, 137.20793, 1.1252167e-05)
+bones/33/rotation = Quaternion(0.484873, -0.07829854, -0.032572936, 0.8704634)
+bones/34/position = Vector3(-2.43469e-07, 94.4465, 3.187637e-06)
+bones/34/rotation = Quaternion(0.36481836, -0.09348998, 0.02452039, 0.92604864)
+bones/36/position = Vector3(-49.30636, -20.565033, 0.42641568)
+bones/36/rotation = Quaternion(-0.09022284, -0.025341876, 0.99558276, -0.0057194554)
+bones/37/position = Vector3(-7.4690925e-06, 146.93303, -1.8360113e-06)
+bones/37/rotation = Quaternion(-0.0988099, 0.08252541, 0.008088418, 0.9916456)
+bones/38/position = Vector3(-2.1480155e-06, 137.26404, -8.623066e-06)
+bones/38/rotation = Quaternion(0.518008, 0.069493175, -0.004428715, 0.8525368)
+bones/39/position = Vector3(-6.4069336e-06, 94.977394, 1.1933398e-06)
+bones/39/rotation = Quaternion(0.3802169, 0.09687464, -0.02202877, 0.91954625)
+
+[node name="Body" parent="MC ANIMATIONS/Armature/Skeleton3D" index="0" unique_id=441446199]
+surface_material_override/0 = SubResource("StandardMaterial3D_bxyp8")
+
+[node name="Jacket" parent="MC ANIMATIONS/Armature/Skeleton3D" index="1" unique_id=1747257742]
+surface_material_override/0 = SubResource("StandardMaterial3D_bxyp8")
+
+[node name="pANTS" parent="MC ANIMATIONS/Armature/Skeleton3D" index="2" unique_id=304710043]
+surface_material_override/0 = SubResource("StandardMaterial3D_bxyp8")
 
 [connection signal="body_entered" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_entered"]
 [connection signal="body_exited" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_exited"]
+
+[editable path="MC ANIMATIONS"]

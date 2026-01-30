@@ -4,7 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dyw4ujgwv7ik1" path="res://scenes/hud.tscn" id="2_g2els"]
 [ext_resource type="Resource" uid="uid://1umi2x8aqr22" path="res://resources/Jack.tres" id="2_qhqgy"]
 [ext_resource type="Resource" uid="uid://bgakqggghuubb" path="res://resources/Bailey.tres" id="2_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://rduah620hygy" path="res://audio/SoundsGGJ2K26/Level/InteractWithNPC.wav" id="3_60mlk"]
+[ext_resource type="AudioStream" uid="uid://bbrxu7qid7n3b" path="res://audio/SoundsGGJ2K26/Level/LosePolice.ogg" id="4_i4ail"]
 [ext_resource type="PackedScene" uid="uid://osblfylkq1t2" path="res://scenes/mask.tscn" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://bsjqbwhem362n" path="res://audio/SoundsGGJ2K26/Level/MaskTrans.ogg" id="5_a38lo"]
 [ext_resource type="Resource" uid="uid://bqivrmtc4io5f" path="res://resources/Estella.tres" id="5_ur7pv"]
 [ext_resource type="Resource" uid="uid://yyxct5mvtpuy" path="res://resources/Carmen.tres" id="7_y4r1p"]
 [ext_resource type="Resource" uid="uid://g3fijinvpafg" path="res://resources/Steve.tres" id="8_d2wvv"]
@@ -30,7 +33,7 @@ material = SubResource("StandardMaterial3D_3vyb7")
 albedo_color = Color(0.7154618, 0.528537, 0.91802305, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2wvv"]
-albedo_color = Color(0.9242398, 0.53064936, 0.3701429, 1)
+albedo_color = Color(0.918703, 0.41673988, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3v2ag"]
 albedo_color = Color(0.8568603, 0.6644436, 0.1817098, 1)
@@ -42,9 +45,10 @@ albedo_color = Color(0.30937707, 0.6003718, 0.43013114, 1)
 albedo_color = Color(0.07058824, 0.2901961, 0.7137255, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oprun"]
-albedo_color = Color(0.78603566, 0.20925322, 0, 1)
+albedo_color = Color(0.71710545, 0, 0.09476829, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8ls1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfm1y"]
+albedo_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
 
 [sub_resource type="Animation" id="Animation_d2wvv"]
 length = 0.001
@@ -89,6 +93,9 @@ _data = {
 collision_layer = 2
 script = ExtResource("1_3vyb7")
 current_mask = ExtResource("10_y4r1p")
+sound_interact = ExtResource("3_60mlk")
+sound_lose = ExtResource("4_i4ail")
+sound_trans = ExtResource("5_a38lo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=743533042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -144,7 +151,7 @@ material = SubResource("StandardMaterial3D_oprun")
 [node name="KleptosMask" parent="Pivot" unique_id=1978292203 instance=ExtResource("4_qlg0r")]
 transform = Transform3D(-0.22325017, 0, -0.9747612, 0, 1, 0, 0.9747612, 0, -0.22325017, 1.2869701, -1, 0.32305276)
 character = ExtResource("10_y4r1p")
-material = SubResource("StandardMaterial3D_a8ls1")
+material = SubResource("StandardMaterial3D_qfm1y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1581447930]
 libraries/ = SubResource("AnimationLibrary_d2wvv")
@@ -176,5 +183,7 @@ col_disabled = true
 visible = false
 col_disabled = true
 
-[node name="Kleptos" parent="Characters" unique_id=145270431 instance=ExtResource("17_a38lo")]
+[node name="Kleptos" parent="Characters" unique_id=1169247674 instance=ExtResource("17_a38lo")]
 col_disabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=966544405]

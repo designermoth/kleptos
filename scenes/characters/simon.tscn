@@ -2,17 +2,33 @@
 
 [ext_resource type="Script" uid="uid://d0qk3e6cmdr31" path="res://scenes/character.gd" id="1_vq36s"]
 [ext_resource type="Resource" uid="uid://ctougw8sfvy0t" path="res://resources/Simon.tres" id="2_vq36s"]
+[ext_resource type="PackedScene" uid="uid://ckmoks3xopprg" path="res://3D models/characters/Appraiser ANIMATIONS.glb" id="3_1ufn7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dkjbp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dkjbp"]
 radius = 3.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq36s"]
-albedo_color = Color(1, 0.34901962, 0.14117648, 1)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ufn7"]
+animation = &"Idle"
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_1ufn7"]
-material = SubResource("StandardMaterial3D_vq36s")
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_86nuw"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_twqag"]
+animation = &"Walking"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_am4ri"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1ufn7")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_86nuw")
+blend_point_1/pos = 0.2
+blend_point_2/node = SubResource("AnimationNodeAnimation_twqag")
+blend_point_2/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ufn7"]
+albedo_color = Color(0.71710545, 0, 0.09476829, 1)
 
 [node name="Simon" type="Node3D" unique_id=681860811]
 script = ExtResource("1_vq36s")
@@ -31,11 +47,102 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea3D" unique_id=914924873]
 shape = SubResource("SphereShape3D_dkjbp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=656854682]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_1ufn7")
-
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1651348486]
+root_node = NodePath("../Appraiser ANIMATIONS")
+tree_root = SubResource("AnimationNodeBlendSpace1D_am4ri")
+anim_player = NodePath("../Appraiser ANIMATIONS/AnimationPlayer")
+parameters/blend_position = 0.0
+
+[node name="Appraiser ANIMATIONS" parent="." unique_id=1966648117 instance=ExtResource("3_1ufn7")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.08, 0)
+
+[node name="Skeleton3D" parent="Appraiser ANIMATIONS/Armature" parent_id_path=PackedInt32Array(1966648117, 1581977149) index="0" unique_id=1761766245]
+bones/0/position = Vector3(-0.46286803, 2.0505447, -352.7285)
+bones/0/rotation = Quaternion(-0.7311202, -0.048613667, 0.0153881535, 0.6803405)
+bones/1/rotation = Quaternion(-0.016334876, 0.015540998, 0.024823247, 0.9994376)
+bones/2/position = Vector3(5.364418e-07, 45.42387, -2.1457608e-06)
+bones/2/rotation = Quaternion(0.012504009, 0.00294965, 0.015313923, 0.9998002)
+bones/3/position = Vector3(-1.1920929e-07, 51.913124, -5.960485e-07)
+bones/3/rotation = Quaternion(0.011774415, 0.0029680459, 0.015111474, 0.99981207)
+bones/4/position = Vector3(1.0728836e-06, 58.402264, 1.5450564e-06)
+bones/4/rotation = Quaternion(0.10938556, -0.0022336985, 0.003078677, 0.9939921)
+bones/5/position = Vector3(6.1392784e-06, 26.913406, 5.38762)
+bones/5/rotation = Quaternion(-0.07498659, 0.007723575, -2.7682949e-05, 0.9971547)
+bones/6/position = Vector3(2.3841858e-07, 157.62799, 31.554676)
+bones/7/position = Vector3(27.513157, 48.424286, -1.3113422)
+bones/7/rotation = Quaternion(-0.6950904, -0.302908, 0.53467727, -0.37311706)
+bones/8/position = Vector3(4.794538e-07, 60.08229, 9.547365e-06)
+bones/8/rotation = Quaternion(0.44397846, 0.14166671, 0.06131228, 0.8826407)
+bones/9/position = Vector3(-2.2620418e-07, 53.773132, 2.4784007e-05)
+bones/9/rotation = Quaternion(0.0018450437, -0.005122881, 0.014981048, 0.999873)
+bones/10/position = Vector3(8.13601e-06, 89.74903, 8.82259e-06)
+bones/10/rotation = Quaternion(0.042270303, -0.23621143, 0.032045383, 0.9702528)
+bones/11/position = Vector3(-12.9744, 16.813528, 2.2947788e-06)
+bones/11/rotation = Quaternion(0.17737181, 0.085932106, 0.18662198, 0.9624589)
+bones/12/position = Vector3(-1.6444225, 16.910234, 3.845833e-06)
+bones/12/rotation = Quaternion(-0.07825851, 0.08038083, -0.24106584, 0.9640031)
+bones/13/position = Vector3(-0.5561967, 15.216877, 3.7152276e-06)
+bones/13/rotation = Quaternion(-0.12935476, -0.07336358, 0.10635788, 0.9831445)
+bones/14/position = Vector3(2.200594, 11.100256, -4.196167e-05)
+bones/15/position = Vector3(1.7701286e-06, 29.155035, 0.01290953)
+bones/15/rotation = Quaternion(0.06650813, 0.005444029, 0.00822302, 0.99773717)
+bones/16/position = Vector3(0.016723871, 24.498917, -2.2124204e-05)
+bones/16/rotation = Quaternion(0.15094163, -3.4717028e-05, -0.0164009, 0.98840666)
+bones/17/position = Vector3(-0.0019977093, 17.841938, 2.8083363e-05)
+bones/17/rotation = Quaternion(0.07005619, -1.1765747e-05, -0.007920736, 0.9975116)
+bones/18/position = Vector3(-0.014732599, 13.488897, 0.00011879206)
+bones/19/position = Vector3(-27.513126, 48.376984, -0.8811473)
+bones/19/rotation = Quaternion(0.69603413, -0.2976983, 0.54769135, 0.35629538)
+bones/20/position = Vector3(4.846304e-07, 60.082237, 5.7296114e-05)
+bones/20/rotation = Quaternion(0.37267956, -0.22993338, -0.06645629, 0.8965625)
+bones/21/position = Vector3(5.023894e-07, 53.770096, -2.2468133e-05)
+bones/21/rotation = Quaternion(0.006656984, 0.0020380192, -0.057579316, 0.99831665)
+bones/22/position = Vector3(4.6014843e-06, 89.75837, 1.657839e-05)
+bones/22/rotation = Quaternion(0.050182905, 0.086376734, -0.004792187, 0.9949864)
+bones/23/position = Vector3(13.870922, 15.658812, -2.9325485e-05)
+bones/23/rotation = Quaternion(0.15841646, -0.0784981, -0.22173473, 0.95894533)
+bones/24/position = Vector3(1.5387177, 16.664213, -4.9699884e-06)
+bones/24/rotation = Quaternion(-0.045676067, -0.07060029, 0.30983752, 0.947064)
+bones/25/position = Vector3(1.462553, 15.89138, -7.785369e-06)
+bones/25/rotation = Quaternion(-0.16024478, 0.0633125, -0.13959725, 0.975103)
+bones/26/position = Vector3(-3.0012848, 11.686329, -2.2411348e-05)
+bones/27/position = Vector3(6.013078e-06, 30.934658, 0.02463442)
+bones/27/rotation = Quaternion(0.05903522, -0.00038949586, -0.0115605425, 0.998189)
+bones/28/position = Vector3(0.15668893, 22.972797, -9.972046e-06)
+bones/28/rotation = Quaternion(0.15177226, -0.00058089336, -0.0021444412, 0.98841304)
+bones/29/position = Vector3(-0.038053095, 19.655317, -1.7035018e-05)
+bones/29/rotation = Quaternion(0.07043875, 0.0007300733, -0.0026282752, 0.99751246)
+bones/30/position = Vector3(-0.11864543, 12.819816, -1.4305078e-06)
+bones/31/rotation = Quaternion(0.1409357, 0.06563942, 0.9835178, -0.09231087)
+bones/32/position = Vector3(3.0016352e-06, 152.4259, 3.509058e-06)
+bones/32/rotation = Quaternion(-0.14961883, -0.0050752587, 0.008579101, 0.9886936)
+bones/33/position = Vector3(-2.1959042e-06, 134.16116, -1.0467485e-05)
+bones/33/rotation = Quaternion(0.4879072, -0.0886906, -0.031022668, 0.86782384)
+bones/34/position = Vector3(-7.415417e-06, 81.96078, -3.607624e-06)
+bones/34/rotation = Quaternion(0.34743905, -0.09192782, 0.021928238, 0.932928)
+bones/35/position = Vector3(-2.9802404e-06, 35.60051, -1.3709047e-06)
+bones/36/rotation = Quaternion(-0.09148324, -0.04799355, 0.9945756, -0.012116224)
+bones/37/position = Vector3(-2.1026808e-06, 152.42041, 5.1710623e-07)
+bones/37/rotation = Quaternion(-0.05977488, 0.08323093, -0.0016986313, 0.9947345)
+bones/38/position = Vector3(-1.3413396e-06, 134.17389, 1.5307867e-05)
+bones/38/rotation = Quaternion(0.5146574, 0.07640786, -0.0059948084, 0.8539635)
+bones/39/position = Vector3(1.5436184e-05, 82.421326, 2.644615e-07)
+bones/39/rotation = Quaternion(0.36354178, 0.094717965, -0.019098016, 0.92655337)
+bones/40/position = Vector3(6.437297e-06, 35.873806, -4.7683397e-07)
+
+[node name="Body" parent="Appraiser ANIMATIONS/Armature/Skeleton3D" index="0" unique_id=1067452785]
+surface_material_override/0 = SubResource("StandardMaterial3D_1ufn7")
+
+[node name="Cylinder" parent="Appraiser ANIMATIONS/Armature/Skeleton3D" index="1" unique_id=1426910971]
+surface_material_override/0 = SubResource("StandardMaterial3D_1ufn7")
+
+[node name="Jacket" parent="Appraiser ANIMATIONS/Armature/Skeleton3D" index="2" unique_id=308986396]
+surface_material_override/0 = SubResource("StandardMaterial3D_1ufn7")
+
+[node name="Pants" parent="Appraiser ANIMATIONS/Armature/Skeleton3D" index="3" unique_id=1532360948]
+surface_material_override/0 = SubResource("StandardMaterial3D_1ufn7")
 
 [connection signal="body_entered" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_entered"]
 [connection signal="body_exited" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_exited"]
+
+[editable path="Appraiser ANIMATIONS"]

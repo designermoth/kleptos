@@ -8,6 +8,8 @@ signal ExitedInteraction
 const SPEED = 8.0
 const RAY_LENGTH = 1000
 
+
+
 @export var current_mask : Character
 var is_character_in_range = false
 var is_coffer_in_range = false
@@ -17,6 +19,12 @@ var suspicion_level = 0
 @export var max_suspicion = 100
 
 var mask_held : Character
+
+
+@export_category("Sounds")
+@export var sound_interact : AudioStream
+@export var sound_lose : AudioStream
+@export var sound_trans : AudioStream
 
 func _ready() -> void:
 	EnteredInteraction.connect(_on_entered_interaction)
@@ -28,6 +36,10 @@ func _physics_process(delta: float) -> void:
 	add_movement(delta)
 	rotate_character()
 
+
+func play_sound(a : AudioStream):
+	$AudioStreamPlayer3D.stream = a
+	$AudioStreamPlayer3D.play()
 
 func raycast_mask():
 	var space_state = get_world_3d().direct_space_state
@@ -71,11 +83,15 @@ func rotate_character():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_character_in_range:
+		Dialogic.clear()
+		play_sound(sound_interact)
 		Dialogic.VAR.relationship = (character_interactable.get(current_mask.name) as int) - 1
 		Dialogic.VAR.has_location = character_interactable.has_location
 		Dialogic.VAR.has_code = character_interactable.has_code
 		Dialogic.start(character_interactable.name)
 	elif event.is_action_pressed("interact") and is_coffer_in_range:
+		Dialogic.clear()
+		play_sound(sound_interact)
 		Dialogic.VAR.coffer = coffer_interactable
 		Dialogic.start("coffer")
 	if event.is_action_pressed("mask"):
@@ -87,6 +103,7 @@ func _input(event: InputEvent) -> void:
 
 
 func change_mask():
+	play_sound(sound_trans)
 	current_mask = mask_held
 	for c in $Characters.get_children():
 		c.visible = true if c.character_res == current_mask else false
@@ -101,7 +118,13 @@ func add_suspicion(sus : int):
 	suspicion_level += sus
 	$HUD.update_suspicion(suspicion_level)
 	if suspicion_level >= max_suspicion:
-		print("SUS ENDING")
+		lose()
+
+
+func lose():
+	Dialogic.clear()
+	play_sound(sound_lose)
+	get_tree().change_scene_to_file("res://scenes/UI/defeat_screen.tscn")
 
 
 #region Interaction
@@ -118,6 +141,7 @@ func _on_entered_interaction(c : Variant):
 
 
 func _on_exited_interaction(c : Variant):
+	Dialogic.clear()
 	if c is Character:
 		is_character_in_range = false
 		character_interactable = null

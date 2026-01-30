@@ -41,11 +41,11 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="SuspicionMeter" type="TextureProgressBar" parent="Control/MarginContainer" unique_id=1303958695]
+custom_minimum_size = Vector2(80, 220)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-value = 92.0
 fill_mode = 3
-nine_patch_stretch = true
 texture_under = ExtResource("2_5ysmq")
 texture_progress = ExtResource("3_6fi6k")
+tint_progress = Color(1, 1, 0, 1)

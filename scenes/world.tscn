@@ -11,8 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://cw858wlti0d5" path="res://scenes/characters/carmen.tscn" id="9_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://cm38hfidmn5jr" path="res://scenes/characters/estella.tscn" id="10_xo05s"]
 [ext_resource type="Script" uid="uid://dln2fu6vdbdsw" path="res://scenes/puzzle_manager.gd" id="11_e3hyu"]
+[ext_resource type="AudioStream" uid="uid://blijwjcq242o6" path="res://audio/SoundsGGJ2K26/Level/RNegative.ogg" id="12_lakw3"]
 [ext_resource type="PackedScene" uid="uid://b3dhrrvycjvdv" path="res://scenes/level.tscn" id="12_q5onr"]
 [ext_resource type="PackedScene" uid="uid://chj1cyn8md0sh" path="res://scenes/coffer.tscn" id="13_jhx03"]
+[ext_resource type="AudioStream" uid="uid://dhekrgmcq2dge" path="res://audio/SoundsGGJ2K26/Level/RNeutral.ogg" id="13_pm21f"]
+[ext_resource type="AudioStream" uid="uid://bm370bb7jgcfl" path="res://audio/SoundsGGJ2K26/Level/RPositive.ogg" id="14_2lf6f"]
+[ext_resource type="AudioStream" uid="uid://ctyy1qlhj26tp" path="res://audio/SoundsGGJ2K26/Level/SUSBYTIME.ogg" id="15_7iits"]
+[ext_resource type="AudioStream" uid="uid://62rpanwvl7mp" path="res://audio/SoundsGGJ2K26/Level/Win.ogg" id="16_oo54l"]
+[ext_resource type="AudioStream" uid="uid://sdk13r12s5n8" path="res://audio/music/level.ogg" id="19_pm21f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -108,6 +114,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.136219, -9.536743e-07, 0.74
 
 [node name="PuzzleManager" type="Node3D" parent="." unique_id=67988540]
 script = ExtResource("11_e3hyu")
+sound_negative = ExtResource("12_lakw3")
+sound_neutral = ExtResource("13_pm21f")
+sound_positive = ExtResource("14_2lf6f")
+sound_sus_time = ExtResource("15_7iits")
+sound_win = ExtResource("16_oo54l")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="PuzzleManager" unique_id=725371628]
 
 [node name="Level" parent="." unique_id=1210619626 instance=ExtResource("12_q5onr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4701767, -3.8146973e-06, -7.216753)
@@ -126,5 +139,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 [node name="SuspicionTimer" type="Timer" parent="." unique_id=1291419830]
 wait_time = 10.0
 autostart = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1853304398]
+stream = ExtResource("19_pm21f")
+volume_db = -4.005
+autoplay = true
 
 [connection signal="timeout" from="SuspicionTimer" to="PuzzleManager" method="_on_suspicion_timer_timeout"]
