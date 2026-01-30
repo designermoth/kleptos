@@ -10,6 +10,13 @@
 [ext_resource type="Resource" uid="uid://g3fijinvpafg" path="res://resources/Steve.tres" id="8_d2wvv"]
 [ext_resource type="Resource" uid="uid://ctougw8sfvy0t" path="res://resources/Simon.tres" id="9_3v2ag"]
 [ext_resource type="Resource" uid="uid://xhkwscm7x7gm" path="res://resources/Kleptos.tres" id="10_y4r1p"]
+[ext_resource type="PackedScene" uid="uid://b2gbu74ft2tkw" path="res://scenes/characters/jack.tscn" id="11_d2wvv"]
+[ext_resource type="PackedScene" uid="uid://cw858wlti0d5" path="res://scenes/characters/carmen.tscn" id="12_qfm1y"]
+[ext_resource type="PackedScene" uid="uid://cm38hfidmn5jr" path="res://scenes/characters/estella.tscn" id="13_fulsm"]
+[ext_resource type="PackedScene" uid="uid://ol7fe66wdql3" path="res://scenes/characters/simon.tscn" id="14_4r5pv"]
+[ext_resource type="PackedScene" uid="uid://et8ter3nfcbo" path="res://scenes/characters/bailey.tscn" id="15_60mlk"]
+[ext_resource type="PackedScene" uid="uid://cadwfnaacd6ta" path="res://scenes/characters/steve.tscn" id="16_i4ail"]
+[ext_resource type="PackedScene" uid="uid://1vy2r05in7rm" path="res://scenes/characters/kleptos.tscn" id="17_a38lo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -89,6 +96,7 @@ shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=813873482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_g2els")
 
 [node name="HUD" parent="." unique_id=1123302383 instance=ExtResource("2_g2els")]
@@ -141,3 +149,32 @@ material = SubResource("StandardMaterial3D_a8ls1")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1581447930]
 libraries/ = SubResource("AnimationLibrary_d2wvv")
 autoplay = &"rotate_masks"
+
+[node name="Characters" type="Node3D" parent="." unique_id=1112320666]
+
+[node name="Jack" parent="Characters" unique_id=681860811 instance=ExtResource("11_d2wvv")]
+visible = false
+col_disabled = true
+
+[node name="Carmen" parent="Characters" unique_id=1132926834 instance=ExtResource("12_qfm1y")]
+visible = false
+col_disabled = true
+
+[node name="Estella" parent="Characters" unique_id=444586808 instance=ExtResource("13_fulsm")]
+visible = false
+col_disabled = true
+
+[node name="Simon" parent="Characters" unique_id=1443196396 instance=ExtResource("14_4r5pv")]
+visible = false
+col_disabled = true
+
+[node name="Bailey" parent="Characters" unique_id=618610858 instance=ExtResource("15_60mlk")]
+visible = false
+col_disabled = true
+
+[node name="Steve" parent="Characters" unique_id=92329762 instance=ExtResource("16_i4ail")]
+visible = false
+col_disabled = true
+
+[node name="Kleptos" parent="Characters" unique_id=145270431 instance=ExtResource("17_a38lo")]
+col_disabled = true

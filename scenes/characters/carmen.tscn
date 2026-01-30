@@ -2,16 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bjp8dn8u44ym0" path="res://scenes/character.tscn" id="1_xuuxu"]
 [ext_resource type="Resource" uid="uid://yyxct5mvtpuy" path="res://resources/Carmen.tres" id="2_4kqnl"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kqnl"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4m8cd"]
-material = SubResource("StandardMaterial3D_4kqnl")
+[ext_resource type="PackedScene" uid="uid://c3hur0r66og5i" path="res://3D models/characters/Character_Auctioneer.glb" id="3_4m8cd"]
 
 [node name="Carmen" unique_id=681860811 instance=ExtResource("1_xuuxu")]
 character_res = ExtResource("2_4kqnl")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=1065305408]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_4m8cd")
+[node name="Character_Auctioneer" parent="." index="3" unique_id=783461581 instance=ExtResource("3_4m8cd")]

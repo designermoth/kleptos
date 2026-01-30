@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://chj1cyn8md0sh"]
+
+[ext_resource type="Script" uid="uid://dqxdqkbd7qfof" path="res://scenes/coffer.gd" id="1_chgvs"]
+[ext_resource type="PackedScene" uid="uid://ddjxcqws0uyl4" path="res://3D models/coffer.glb" id="1_dydq1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dydq1"]
+radius = 1.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chgvs"]
+size = Vector3(0.855, 1, 0.855)
+
+[node name="Coffer" type="Node3D" unique_id=840365361]
+script = ExtResource("1_chgvs")
+
+[node name="coffer" parent="." unique_id=849538109 instance=ExtResource("1_dydq1")]
+
+[node name="InteractionArea3D" type="Area3D" parent="." unique_id=448233006]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea3D" unique_id=1940120623]
+shape = SubResource("SphereShape3D_dydq1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1118137110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7005811, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2140857124]
+shape = SubResource("BoxShape3D_chgvs")
+
+[connection signal="body_entered" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_entered"]
+[connection signal="body_exited" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_exited"]

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://ol7fe66wdql3"]
+[gd_scene format=3 uid="uid://1vy2r05in7rm"]
 
-[ext_resource type="Script" uid="uid://d0qk3e6cmdr31" path="res://scenes/character.gd" id="1_vq36s"]
-[ext_resource type="Resource" uid="uid://ctougw8sfvy0t" path="res://resources/Simon.tres" id="2_vq36s"]
+[ext_resource type="Script" uid="uid://d0qk3e6cmdr31" path="res://scenes/character.gd" id="1_364n2"]
+[ext_resource type="Resource" uid="uid://xhkwscm7x7gm" path="res://resources/Kleptos.tres" id="2_0pl1d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dkjbp"]
 
@@ -11,12 +11,12 @@ radius = 3.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq36s"]
 albedo_color = Color(1, 0.34901962, 0.14117648, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_1ufn7"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0pl1d"]
 material = SubResource("StandardMaterial3D_vq36s")
 
-[node name="Simon" type="Node3D" unique_id=681860811]
-script = ExtResource("1_vq36s")
-character_res = ExtResource("2_vq36s")
+[node name="Kleptos" type="Node3D" unique_id=681860811]
+script = ExtResource("1_364n2")
+character_res = ExtResource("2_0pl1d")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1099207709]
 
@@ -31,11 +31,11 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea3D" unique_id=914924873]
 shape = SubResource("SphereShape3D_dkjbp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=656854682]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_1ufn7")
-
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1651348486]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=745758213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_0pl1d")
 
 [connection signal="body_entered" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_entered"]
 [connection signal="body_exited" from="InteractionArea3D" to="." method="_on_interaction_area_3d_body_exited"]

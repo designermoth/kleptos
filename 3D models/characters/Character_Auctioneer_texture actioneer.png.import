@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsiid7qmwwcld"
-path.s3tc="res://.godot/imported/coffer_textura4.png-43eddcc958cb1f5fcc9924bee73eb75d.s3tc.ctex"
+uid="uid://bjgvqrkrnsbuh"
+path.s3tc="res://.godot/imported/Character_Auctioneer_texture actioneer.png-bf2b9f1377f83e8176c559cce5a4b249.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "55b5d9653ab51ed6fb848b0cd5d92071"
+"md5": "a2f7e3b24e015368ba91da78935c6877"
 }
 
 [deps]
 
-source_file="res://3D models/coffer_textura4.png"
-dest_files=["res://.godot/imported/coffer_textura4.png-43eddcc958cb1f5fcc9924bee73eb75d.s3tc.ctex"]
+source_file="res://3D models/characters/Character_Auctioneer_texture actioneer.png"
+dest_files=["res://.godot/imported/Character_Auctioneer_texture actioneer.png-bf2b9f1377f83e8176c559cce5a4b249.s3tc.ctex"]
 
 [params]
 

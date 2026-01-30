@@ -10,7 +10,9 @@ const RAY_LENGTH = 1000
 
 @export var current_mask : Character
 var is_character_in_range = false
+var is_coffer_in_range = false
 var character_interactable : Character
+var coffer_interactable = ""
 var suspicion_level = 0
 @export var max_suspicion = 100
 
@@ -24,6 +26,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	raycast_mask()
 	add_movement(delta)
+	rotate_character()
 
 
 func raycast_mask():
@@ -58,9 +61,13 @@ func add_movement(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	for c in $Characters.get_children():
+		c.speed = velocity
 	move_and_slide()
 
+
+func rotate_character():
+	$Characters.rotation.y = atan2(velocity.x,velocity.z)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_character_in_range:
@@ -68,12 +75,21 @@ func _input(event: InputEvent) -> void:
 		Dialogic.VAR.has_location = character_interactable.has_location
 		Dialogic.VAR.has_code = character_interactable.has_code
 		Dialogic.start(character_interactable.name)
+	elif event.is_action_pressed("interact") and is_coffer_in_range:
+		Dialogic.VAR.coffer = coffer_interactable
+		Dialogic.start("coffer")
 	if event.is_action_pressed("mask"):
 		$Pivot.visible = true
 	if event.is_action_released("mask"):
 		$Pivot.visible = false
 	if event is InputEventMouseButton && not mask_held == null:
-		current_mask = mask_held
+		change_mask()
+
+
+func change_mask():
+	current_mask = mask_held
+	for c in $Characters.get_children():
+		c.visible = true if c.character_res == current_mask else false
 
 func add_mask(c : Character):
 	for m in $Pivot.get_children():
@@ -90,15 +106,24 @@ func add_suspicion(sus : int):
 
 #region Interaction
 
-func _on_entered_interaction(c : Character):
-	is_character_in_range = true
-	character_interactable = c
-	$HUD.update_interaction(c.name)
+func _on_entered_interaction(c : Variant):
+	if c is Character:
+		is_character_in_range = true
+		character_interactable = c
+		$HUD.update_interaction(c.name)
+	else:
+		is_coffer_in_range = true
+		coffer_interactable = c
+		$HUD.update_interaction(c + " coffer","open the ")
 
 
-func _on_exited_interaction(c : Character):
-	is_character_in_range = false
-	character_interactable = null
-	$HUD.update_interaction("",true)
+func _on_exited_interaction(c : Variant):
+	if c is Character:
+		is_character_in_range = false
+		character_interactable = null
+	else:
+		is_coffer_in_range = false
+		coffer_interactable = ""
+	$HUD.update_interaction("","",true)
 
 #endregion

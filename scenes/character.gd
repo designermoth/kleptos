@@ -1,16 +1,17 @@
 extends Node3D
 
 @export var character_res : Character
+@export var col_disabled = false
 
-# Called when the node enters the scene tree for the first time.
+var speed = Vector2.ZERO
+
+@onready var animation_tree: AnimationTree = $AnimationTree
+
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+	$StaticBody3D/CollisionShape3D.disabled = col_disabled
+	$InteractionArea3D/CollisionShape3D.disabled = col_disabled
+	
 
 func _on_interaction_area_3d_body_entered(player: Player) -> void:
 	if player == null:
@@ -22,3 +23,8 @@ func _on_interaction_area_3d_body_exited(player: Player) -> void:
 	if player == null:
 		return
 	player.emit_signal("ExitedInteraction", character_res)
+
+
+func _physics_process(delta: float) -> void:
+	#print(speed.length())
+	animation_tree.set("parameters/blend_position",speed.length() / 8.0)

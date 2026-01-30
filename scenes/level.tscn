@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://bdcp125uudv3w" path="res://3D models/pupu_statue.glb" id="20_kih21"]
 [ext_resource type="PackedScene" uid="uid://dxbcli6xbsrgm" path="res://3D models/big_vase.glb" id="22_5k0ak"]
 [ext_resource type="PackedScene" uid="uid://byaafcbcaxc8l" path="res://3D models/small_vase.glb" id="23_wu01b"]
-[ext_resource type="PackedScene" uid="uid://ddjxcqws0uyl4" path="res://3D models/coffer.glb" id="24_wu01b"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w8frs"]
 points = PackedVector3Array(-0.23040253, -0.030950546, -3.031448, 0.1987, 3.8915043, -0.08874263, -0.23040253, 4.0309505, 0.015872836, -0.23040253, 4.0309505, -3.031448, -0.23040253, -0.030950546, 0.015872836, 0.1987, 0.10849578, -2.9268324, 0.1987, 3.8915043, -2.9268324, 0.1987, 0.10849578, -0.08874263)
@@ -1596,15 +1595,6 @@ transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, -29.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Envirnment/small_vase2/Plane/StaticBody3D" unique_id=1264475066]
 shape = SubResource("ConvexPolygonShape3D_xy2fk")
-
-[node name="coffer" parent="." unique_id=2042864199 instance=ExtResource("24_wu01b")]
-transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, -38.8602, 0.012290819, 8.386599)
-
-[node name="coffer2" parent="." unique_id=71196674 instance=ExtResource("24_wu01b")]
-transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, -38.8602, 0.012290819, 4.6535015)
-
-[node name="coffer3" parent="." unique_id=1016138457 instance=ExtResource("24_wu01b")]
-transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, -38.8602, 0.012290819, 1.0952109)
 
 [editable path="Walls/wall2"]
 [editable path="Walls/window"]

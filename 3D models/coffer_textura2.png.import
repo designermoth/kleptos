@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsiid7qmwwcld"
-path.s3tc="res://.godot/imported/coffer_textura4.png-43eddcc958cb1f5fcc9924bee73eb75d.s3tc.ctex"
+uid="uid://wu5qnua0hac"
+path.s3tc="res://.godot/imported/coffer_textura2.png-b5881e5e569542f2c266fd7a1d1417bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "55b5d9653ab51ed6fb848b0cd5d92071"
+"md5": "e39d48781cd639b154c9cff8604aea66"
 }
 
 [deps]
 
-source_file="res://3D models/coffer_textura4.png"
-dest_files=["res://.godot/imported/coffer_textura4.png-43eddcc958cb1f5fcc9924bee73eb75d.s3tc.ctex"]
+source_file="res://3D models/coffer_textura2.png"
+dest_files=["res://.godot/imported/coffer_textura2.png-b5881e5e569542f2c266fd7a1d1417bd.s3tc.ctex"]
 
 [params]
 

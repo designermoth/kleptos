@@ -12,6 +12,8 @@ func _ready() -> void:
 	load_characters()
 	setup()
 	Dialogic.signal_event.connect(_on_get_information)
+	
+	
 
 
 func load_characters():
@@ -20,7 +22,7 @@ func load_characters():
 		character_array.append(ResourceLoader.load("res://resources/" + p) as Character)
 
 func setup():
-	code = str(randi_range(0,999))
+	code = str(randi_range(100,999))
 	location = randi_range(0,2) as LOCATIONS
 	character_array.pick_random().has_location = true
 	var poss = character_array.duplicate()
@@ -41,7 +43,20 @@ func _on_get_information(argument : String):
 		owner.get_node("Player").add_mask(c)
 	elif argument.begins_with("add_suspicion"):
 		owner.get_node("Player").add_suspicion(argument.right(2).to_int())
+	elif argument == "check_code":
+		if str(Dialogic.VAR.input) == code:
+			print(str(Dialogic.VAR.coffer) + "|" + str(LOCATIONS.find_key(location)))
+			if str(Dialogic.VAR.coffer) == str(LOCATIONS.find_key(location)):
+				print("win")
+			else:
+				owner.get_node("Player").add_suspicion(50)
+		else:
+			owner.get_node("Player").add_suspicion(100)
 	else: 
 		var c = character_array[character_array.find_custom(func (x) : return x.name == argument)]
 		Dialogic.VAR.answer = code[c.has_code - 1] if c.has_code else ""
 		Dialogic.VAR.position = "First" if c.has_code == 1 else "Second" if c.has_code == 2 else "Third"
+
+
+func _on_suspicion_timer_timeout() -> void:
+	owner.get_node("Player").add_suspicion(10)

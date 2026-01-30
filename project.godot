@@ -71,6 +71,7 @@ translation/save_mode=0
 translation/add_separator=false
 variables={
 "answer": "",
+"coffer": "",
 "has_code": 0,
 "has_location": true,
 "input": "",
