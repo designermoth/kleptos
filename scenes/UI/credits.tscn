@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://pgd7647u61ye"]
+
+[ext_resource type="Script" uid="uid://c8fmei0msqiau" path="res://scenes/UI/credits.gd" id="1_228wp"]
+[ext_resource type="Texture2D" uid="uid://wowpjlt8gqwt" path="res://icon.svg" id="2_21wcu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yonvy"]
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_21wcu"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_228wp"]
+font_size = 32
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=36988821]
+script = ExtResource("1_228wp")
+
+[node name="CenterContainer" type="Control" parent="." unique_id=626296491]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=136162680]
+modulate = Color(0.837077, 0.87301135, 0.07674763, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_21wcu")
+
+[node name="Title" type="Label" parent="CenterContainer" unique_id=1048375711]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.0
+offset_top = 107.0
+offset_right = 164.0
+offset_bottom = 206.0
+grow_horizontal = 2
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_yonvy")
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="CenterContainer" unique_id=1177696633]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -251.0
+offset_top = 923.0
+offset_right = 260.0
+offset_bottom = 1022.0
+grow_horizontal = 2
+text = "Press Q to quit"
+label_settings = SubResource("LabelSettings_21wcu")
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="CenterContainer" unique_id=934957227]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -214.5
+offset_right = 162.5
+offset_bottom = 214.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "André Pais
+Andrea Vadean
+Artémis Pereira
+Emanuel Pacheco
+Eduardo Amaral
+João Benquerença
+Maria Ramalho
+Rúben Guilherme
+Tiago Pena"
+label_settings = SubResource("LabelSettings_228wp")
+vertical_alignment = 1
+uppercase = true
