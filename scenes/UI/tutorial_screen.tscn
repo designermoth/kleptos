@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://fbjmqjwo8k3g"]
+
+[ext_resource type="Script" uid="uid://dvh2pjljpth3i" path="res://scenes/UI/tutorial_screen.gd" id="1_mrh81"]
+[ext_resource type="Texture2D" uid="uid://1gnj5056g5fk" path="res://sprites/UI/Tutorial.png" id="2_mrh81"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_42rxj"]
+font_size = 32
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=36988821]
+script = ExtResource("1_mrh81")
+
+[node name="CenterContainer" type="Control" parent="." unique_id=626296491]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=136162680]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mrh81")
+stretch_mode = 5
+
+[node name="PlayAgain" type="Label" parent="CenterContainer" unique_id=375148063]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 540.0
+offset_top = -80.0
+offset_right = 867.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press E to Continue"
+label_settings = SubResource("LabelSettings_42rxj")
+horizontal_alignment = 1
+vertical_alignment = 1
