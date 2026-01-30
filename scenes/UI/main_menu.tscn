@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://ceg80jfl3q80c"]
 
 [ext_resource type="Script" uid="uid://dud5qyheedm5b" path="res://scenes/UI/main_menu.gd" id="1_yonvy"]
-[ext_resource type="Texture2D" uid="uid://wowpjlt8gqwt" path="res://icon.svg" id="2_5jstl"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_42rxj"]
-font_size = 32
+[ext_resource type="Texture2D" uid="uid://bi68ojecibruc" path="res://sprites/UI/Main_Menu.jpg" id="2_yonvy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yonvy"]
-font_size = 72
+font_size = 218
+
+[sub_resource type="LabelSettings" id="LabelSettings_42rxj"]
+font_size = 42
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=36988821]
 script = ExtResource("1_yonvy")
@@ -21,14 +21,27 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=136162680]
-modulate = Color(0.28627452, 0.101960786, 1, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5jstl")
+texture = ExtResource("2_yonvy")
+
+[node name="Title" type="Label" parent="CenterContainer" unique_id=1048375711]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1910.0
+offset_top = 98.0
+offset_right = -982.0
+offset_bottom = 396.0
+grow_horizontal = 0
+text = "KLEPT   S"
+label_settings = SubResource("LabelSettings_yonvy")
+horizontal_alignment = 1
 
 [node name="PlayAgain" type="Label" parent="CenterContainer" unique_id=375148063]
 layout_mode = 1
@@ -37,10 +50,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -163.5
-offset_top = -180.0
-offset_right = 163.5
-offset_bottom = -135.0
+offset_left = 479.0
+offset_top = -557.0
+offset_right = 806.0
+offset_bottom = -499.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Press E to Play!"
@@ -54,10 +67,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -163.5
-offset_top = -130.0
-offset_right = 163.5
-offset_bottom = -85.0
+offset_left = 459.0
+offset_top = -507.0
+offset_right = 826.0
+offset_bottom = -449.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Press F for Credits"
@@ -71,29 +84,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -163.5
-offset_top = -80.0
-offset_right = 163.5
-offset_bottom = -35.0
+offset_left = 374.0
+offset_top = -457.0
+offset_right = 911.0
+offset_bottom = -399.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Press Q to Quit to Desktop"
 label_settings = SubResource("LabelSettings_42rxj")
-horizontal_alignment = 1
-
-[node name="Title" type="Label" parent="CenterContainer" unique_id=1048375711]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -157.0
-offset_top = -783.0
-offset_right = 170.0
-offset_bottom = -738.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "KLEPTOS"
-label_settings = SubResource("LabelSettings_yonvy")
 horizontal_alignment = 1
