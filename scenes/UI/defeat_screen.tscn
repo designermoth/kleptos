@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b157m5v7hfwxn"]
+
+[ext_resource type="Script" uid="uid://dh1sh4m7ob0of" path="res://scenes/UI/defeat_screen.gd" id="1_gle2e"]
+[ext_resource type="Texture2D" uid="uid://wowpjlt8gqwt" path="res://icon.svg" id="2_34jhn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_42rxj"]
+font_size = 32
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=36988821]
+script = ExtResource("1_gle2e")
+
+[node name="CenterContainer" type="Control" parent="." unique_id=626296491]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=136162680]
+modulate = Color(0.96862745, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_34jhn")
+expand_mode = 2
+
+[node name="PlayAgain" type="Label" parent="CenterContainer" unique_id=375148063]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -163.5
+offset_top = -180.0
+offset_right = 163.5
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press E to Play Again!"
+label_settings = SubResource("LabelSettings_42rxj")
+
+[node name="Quit" type="Label" parent="CenterContainer" unique_id=1725220618]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -163.5
+offset_top = -80.0
+offset_right = 163.5
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Q to Quit"
+label_settings = SubResource("LabelSettings_42rxj")
+horizontal_alignment = 1
