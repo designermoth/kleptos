@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kleptos"
-run/main_scene="uid://chbcp1ym0vvxt"
+run/main_scene="uid://ceg80jfl3q80c"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

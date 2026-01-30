@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://fbjmqjwo8k3g"]
+[gd_scene format=3 uid="uid://q4la4t00cnlp"]
 
-[ext_resource type="Script" uid="uid://dvh2pjljpth3i" path="res://scenes/UI/tutorial_screen.gd" id="1_mrh81"]
+[ext_resource type="Script" path="res://scenes/UI/tutorial_screen.gd" id="1_mrh81"]
 [ext_resource type="Texture2D" uid="uid://1gnj5056g5fk" path="res://sprites/UI/Tutorial.png" id="2_mrh81"]
+[ext_resource type="Texture2D" uid="uid://dpy28j81r6o6v" path="res://sprites/UI/Victory.jpg" id="2_xryfh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_42rxj"]
 font_size = 32
@@ -16,6 +17,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer" unique_id=1219496376]
+modulate = Color(0.77254903, 0.77254903, 0.77254903, 0.35686275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xryfh")
+stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=136162680]
 layout_mode = 1

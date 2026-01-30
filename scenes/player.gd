@@ -15,8 +15,8 @@ var is_character_in_range = false
 var is_coffer_in_range = false
 var character_interactable : Character
 var coffer_interactable = ""
-var suspicion_level = 0
-@export var max_suspicion = 100
+var suspicion_level = 0.0
+@export var max_suspicion = 100.0
 
 var mask_held : Character
 
@@ -54,8 +54,11 @@ func raycast_mask():
 
 	var result = space_state.intersect_ray(query)
 	if result.size() > 0 && $Pivot.visible && result.collider.owner.visible:
+		$GPUParticles3D.visible = true
+		$GPUParticles3D.global_position = result.collider.owner.global_position
 		mask_held = result.collider.owner.character
 	else:
+		$GPUParticles3D.visible = false
 		mask_held = null
 
 func add_movement(delta):

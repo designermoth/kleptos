@@ -270,7 +270,14 @@ mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_ssa84")
 metadata/_edit_layout_mode = 1
 
-[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=201998365 node_paths=PackedStringArray("textbox_root")]
+[node name="MarginContainer" type="MarginContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=1642020727]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/MarginContainer" unique_id=201998365 node_paths=PackedStringArray("textbox_root")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
@@ -283,9 +290,9 @@ bbcode_enabled = true
 text = "Some default text"
 visible_characters_behavior = 1
 script = ExtResource("3_4634k")
-textbox_root = NodePath("..")
+textbox_root = NodePath("../..")
 
-[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/DialogicNode_DialogText" unique_id=1931290003]
+[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/MarginContainer/DialogicNode_DialogText" unique_id=1931290003]
 unique_name_in_owner = true
 script = ExtResource("4_ma5mw")
 play_every_character = 0

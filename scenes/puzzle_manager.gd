@@ -57,7 +57,7 @@ func _on_get_information(argument : String):
 		owner.get_node("Player").add_mask(c)
 	elif argument.begins_with("add_suspicion"):
 		play_sound(sound_negative)
-		owner.get_node("Player").add_suspicion(argument.right(2).to_int())
+		owner.get_node("Player").add_suspicion(argument.right(2).to_int()/2)
 	elif argument == "check_code":
 		if str(Dialogic.VAR.input) == code:
 			print(str(Dialogic.VAR.coffer) + "|" + str(LOCATIONS.find_key(location)))
@@ -81,4 +81,4 @@ func win():
 
 func _on_suspicion_timer_timeout() -> void:
 	play_sound(sound_sus_time)
-	owner.get_node("Player").add_suspicion(10)
+	owner.get_node("Player").add_suspicion(5)

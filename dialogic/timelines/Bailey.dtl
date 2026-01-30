@@ -9,14 +9,14 @@ Bailey: Hello Hello, can I get you something to drink?
 			[signal arg="get_not_location"]
 			Bailey: The Location? i have no idea, but you can always come to the bar to make my day, and yours, better. *wink*
 	elif {relationship} == 0.0:
-		[signal arg="add_suspicion10"]
+		[signal arg="add_suspicion5"]
 		if {has_location} == true:
 			[signal arg="get_location"]
 			Bailey: The only thing i know is that isn't in the {answer}. Why do you need to know that?
 		else:
 			Bailey: I know nothing about it. Why do you need to know?
 	else:
-		[signal arg="add_suspicion25"]
+		[signal arg="add_suspicion10"]
 		Bailey: Oh... you.... Why would i know that?
 - Ask code
 	if {relationship} == 1.0:
@@ -26,23 +26,23 @@ Bailey: Hello Hello, can I get you something to drink?
 		else:
 			Bailey: The code? I don't know that, but i can help you in other ways. *wink*
 	elif {relationship} == 0.0:
-		[signal arg="add_suspicion10"]
+		[signal arg="add_suspicion5"]
 		if {has_code} > 0.0:
 			[signal arg="Bailey"]
 			Bailey: The code? Well, i think the {position} Digit starts with {answer}. Do you need anything from there?
 		else:
 			Bailey: The code? I don't know anything about it. Do you need anything from there?
 	else:
-		[signal arg="add_suspicion25"]
+		[signal arg="add_suspicion10"]
 		Bailey: Oh... you.... Why would i know that?
 - Ask person
 	if {relationship} == 1.0:
 		[signal arg="new_maskBailey"]
 		Bailey: Oh, you can know me in any way, shape and form. *wink*
 	elif {relationship} == 0.0:
-		[signal arg="add_suspicion10"]
+		[signal arg="add_suspicion15"]
 		[signal arg="new_maskBailey"]
 		Hello, nice to meet you. Can I get you a drink?
 	else:
-		[signal arg="add_suspicion25"]
+		[signal arg="add_suspicion10"]
 		I dont have time for that, people are thirsty.

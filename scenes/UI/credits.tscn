@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://pgd7647u61ye"]
 
 [ext_resource type="Script" uid="uid://c8fmei0msqiau" path="res://scenes/UI/credits.gd" id="1_228wp"]
-[ext_resource type="Texture2D" uid="uid://wowpjlt8gqwt" path="res://icon.svg" id="2_21wcu"]
+[ext_resource type="Texture2D" uid="uid://dpy28j81r6o6v" path="res://sprites/UI/Victory.jpg" id="2_228wp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yonvy"]
 font_size = 72
@@ -23,15 +23,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=136162680]
-modulate = Color(0.837077, 0.87301135, 0.07674763, 1)
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer" unique_id=794820067]
+modulate = Color(0.77254903, 0.77254903, 0.77254903, 0.35686275)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_21wcu")
+texture = ExtResource("2_228wp")
+stretch_mode = 5
 
 [node name="Title" type="Label" parent="CenterContainer" unique_id=1048375711]
 layout_mode = 1

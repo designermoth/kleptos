@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://b23b0juqyhp7t"]
+
+[ext_resource type="Texture2D" uid="uid://be1jb1hkcrvly" path="res://sprites/UI/good_text_box.png" id="1_lpd17"]
+
+[resource]
+texture = ExtResource("1_lpd17")
+texture_margin_left = 80.0
+texture_margin_top = 20.0
+texture_margin_right = 80.0
+texture_margin_bottom = 20.0

@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://ceg80jfl3q80c"]
 
 [ext_resource type="Script" uid="uid://dud5qyheedm5b" path="res://scenes/UI/main_menu.gd" id="1_yonvy"]
-[ext_resource type="Texture2D" uid="uid://bi68ojecibruc" path="res://sprites/UI/Main_Menu.jpg" id="2_yonvy"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_yonvy"]
-font_size = 218
+[ext_resource type="Texture2D" uid="uid://bgjreer1sfqln" path="res://sprites/UI/Main_menu.png" id="2_yonvy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_42rxj"]
 font_size = 42
@@ -28,20 +25,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_yonvy")
-
-[node name="Title" type="Label" parent="CenterContainer" unique_id=1048375711]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1910.0
-offset_top = 98.0
-offset_right = -982.0
-offset_bottom = 396.0
-grow_horizontal = 0
-text = "KLEPT   S"
-label_settings = SubResource("LabelSettings_yonvy")
-horizontal_alignment = 1
 
 [node name="PlayAgain" type="Label" parent="CenterContainer" unique_id=375148063]
 layout_mode = 1
